@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import 'assets/styles/base.scss';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from 'pages/Login/Login';
+import Layout from 'components/Layout/Layout';
+import Home from 'pages/Admin/Home/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/user" element={<Home />} />
+
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

@@ -1,0 +1,16 @@
+.login{
+    &__btn{
+        margin-top: 50px;
+        width: 100%;
+        & button{
+            width: 100%;
+        }
+    }
+    &__logo{
+    text-align: center;
+    width: 100%;
+    h1{
+        color: #025c75;
+    }
+    }
+}
