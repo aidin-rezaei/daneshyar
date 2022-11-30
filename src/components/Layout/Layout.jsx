@@ -58,8 +58,10 @@ const Layout = ({ children, roll }) => {
             </div>
             <div className='content'>
                 <div className='content__header'>
-                    <div onClick={() => { setopenMenu(!openMenu) }}>
-                        <Bars3Icon />
+                    <div>
+                        <Button click={() => { setopenMenu(!openMenu) }}>
+                            <Bars3Icon />
+                        </Button>
                     </div>
                     <h1 style={{ color: "#fff" }}>پیمن</h1>
                 </div>

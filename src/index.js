@@ -6,7 +6,6 @@ import 'assets/styles/base.scss';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from 'pages/Login/Login';
-import Layout from 'components/Layout/Layout';
 import Home from 'pages/Admin/Home/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,5 +1,4 @@
 import {
-    UsersIcon,
     ArrowRightOnRectangleIcon,
     HomeIcon,
     AcademicCapIcon,

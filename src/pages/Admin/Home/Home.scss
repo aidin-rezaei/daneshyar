@@ -1,5 +1,6 @@
 .Home__table {
     border-collapse: collapse;
+    margin: auto;
     thead{
         color: #fff;
         font-size: 18px;
@@ -27,7 +28,7 @@
 
                 height: 100%;
 
-                div {
+                >div {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -38,18 +39,29 @@
                     padding: 5px ;
                 }
 
+
             }
 
-            td:nth-last-child(1) div {
+            td:nth-last-child(1) >div {
                 // background: #fff;
+                width: 100px;
                 border-radius: 10px 0 0 10px;
             }
-
-            td:first-child div {
+            td:nth-last-child(1)  {
+                width: 90px;
+            }
+            td:nth-last-child(3)  {
+                width: 100px;
+            }
+            td:first-child >div {
                 // background: #fff;
                 border-radius: 0 10px 10px 0;
 
             }
         }
+    }
+    &__name{
+        justify-content: flex-start !important;
+        gap: 10px;
     }
 }
