@@ -15,7 +15,10 @@ const Button = ({
       setTimeout(() => {
         navigate(`${link}`)
       }, 500)
-    if (click !== undefined) click()
+    if (click !== undefined)
+      setTimeout(() => {
+        click()
+      }, 100)
   }
   return (
     <button
