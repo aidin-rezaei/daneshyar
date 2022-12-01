@@ -8,14 +8,20 @@ const Button = ({
   children,
   link,
   disabled,
-  className
+  className,
+  nodelay
 }) => {
   const navigate = useNavigate()
   const onclicked = () => {
-    if (link !== undefined)
-      setTimeout(() => {
-        navigate(`${link}`)
-      }, 500)
+    if (link !== undefined){
+      if(nodelay === undefined)
+        setTimeout(() => {
+          navigate(`${link}`)
+        }, 500)
+        else{
+          navigate(`${link}`)
+        }
+    }
     if (click !== undefined)
       setTimeout(() => {
         click()
