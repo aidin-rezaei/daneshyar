@@ -8,11 +8,12 @@ const Button = ({
   link,
   children,
   disabled,
-  className
+  className,
+  nodelay
 }) => {
   ButtonFunc()
   return (
-    <Btn click={click} idx={idx} className={className} link={link} sx={sx} disabled={disabled}>
+    <Btn click={click} nodelay={nodelay} idx={idx} className={className} link={link} sx={sx} disabled={disabled}>
       {children}
     </Btn>
   )

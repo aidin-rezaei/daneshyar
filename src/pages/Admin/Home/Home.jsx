@@ -5,7 +5,6 @@ import './Home.scss'
 import StringAvater from 'components/StringAvater/StringAvater';
 const Home = () => {
     return (
-        <Layout>
             <table className='Home__table'>
                 <thead>
                     <tr>
@@ -83,7 +82,7 @@ const Home = () => {
                     </tr>
                 </tbody>
             </table>
-        </Layout>
+
     );
 }
 

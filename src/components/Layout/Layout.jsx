@@ -4,7 +4,7 @@ import { Bars3Icon } from '@heroicons/react/24/solid'
 import './Layout.scss'
 import { useEffect, useState } from 'react';
 import { Avatar } from '@mui/material';
-import { useLocation } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 const Layout = ({ children, roll }) => {
     const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const Layout = ({ children, roll }) => {
 
                             return (<>
                                 <div key={key} title={item.title}>
-                                    <Button className={location.pathname === item.route ? "active" : ""} link={`${item.route}`}>{item.icon}{item.title}</Button>
+                                    <Button nodelay className={location.pathname === item.route ? "active" : ""} link={`${item.route}`}>{item.icon}{item.title}</Button>
                                 </div>
 
                             </>
@@ -74,6 +74,7 @@ const Layout = ({ children, roll }) => {
                 </div>
                 <div className='content__body'>
                     {children}
+                    <Outlet/>
                 </div>
             </div>
         </>

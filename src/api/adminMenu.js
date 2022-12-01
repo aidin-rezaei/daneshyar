@@ -31,7 +31,7 @@ import {
     },
     {
       title: "مدیریت پروژه ها",
-      route:'/admin',
+      route:'/admin/projects',
       icon: <PresentationChartLineIcon />,
       subMenuIcon: <div></div>,
       subMenu : [
