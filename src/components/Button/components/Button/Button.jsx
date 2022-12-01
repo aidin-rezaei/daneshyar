@@ -8,6 +8,7 @@ const Button = ({
   children,
   link,
   disabled,
+  className
 }) => {
   const navigate = useNavigate()
   const onclicked = () => {
@@ -22,7 +23,7 @@ const Button = ({
   }
   return (
     <button
-      className="btn effect-click"
+      className={`btn effect-click ${className}`}
       onClick={onclicked}
       id={idx}
       style={sx}

@@ -9,7 +9,7 @@ import {
   export const adminMenu = [
     {
       title: "خانه",
-      route:'/',
+      route:'/admin/home',
       icon: <HomeIcon />,
       subMenuIcon: <div></div>,
       subMenu : [
@@ -20,7 +20,7 @@ import {
     },
     {
       title: "دانشجویان",
-      route:'/admin',
+      route:'/admin/users',
       icon: <AcademicCapIcon/>,
       subMenuIcon: <div></div>,
       subMenu : [

@@ -15,7 +15,7 @@ const Login = () => {
                 <Input label='شماره دانشجویی'/>
                 <Input label='رمز عبور'/>
                 <div className='login__btn'>
-                <Button link='/user'>ورود</Button>
+                <Button link='/admin/home'>ورود</Button>
                 </div>
             </CardG>
         </div>

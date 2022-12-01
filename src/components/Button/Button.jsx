@@ -8,10 +8,11 @@ const Button = ({
   link,
   children,
   disabled,
+  className
 }) => {
   ButtonFunc()
   return (
-    <Btn click={click} idx={idx} link={link} sx={sx} disabled={disabled}>
+    <Btn click={click} idx={idx} className={className} link={link} sx={sx} disabled={disabled}>
       {children}
     </Btn>
   )

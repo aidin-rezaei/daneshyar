@@ -2,10 +2,16 @@ import { adminMenu } from 'api/adminMenu';
 import Button from 'components/Button/Button';
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import './Layout.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Avatar } from '@mui/material';
+import { useLocation } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 const Layout = ({ children, roll }) => {
+    const dispatch = useDispatch();
     const [openMenu, setopenMenu] = useState(false)
+    const MENU = useSelector(state => state.menu);
+    useEffect(()=>{setopenMenu(MENU)},[MENU])
+
     const stringToColor = (string) => {
         let hash = 0;
         let i;
@@ -33,7 +39,7 @@ const Layout = ({ children, roll }) => {
             children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
         };
     }
-
+    const location = useLocation();
     return (
         <>
             <div className='sidebar'>
@@ -45,9 +51,10 @@ const Layout = ({ children, roll }) => {
                     <div className='hrbox'></div>
                     <div className='sidebar__body__menu'>
                         {adminMenu.map((item, key) => {
+
                             return (<>
                                 <div key={key} title={item.title}>
-                                    <Button link={`${item.route}`}>{item.icon}{item.title}</Button>
+                                    <Button className={location.pathname === item.route ? "active" : ""} link={`${item.route}`}>{item.icon}{item.title}</Button>
                                 </div>
 
                             </>
@@ -59,7 +66,7 @@ const Layout = ({ children, roll }) => {
             <div className='content'>
                 <div className='content__header'>
                     <div>
-                        <Button click={() => { setopenMenu(!openMenu) }}>
+                        <Button click={() => { dispatch({ type: "TOGGLE_SIDEBAR_MENU" }) }}>
                             <Bars3Icon />
                         </Button>
                     </div>

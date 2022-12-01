@@ -121,7 +121,9 @@
                     background: #00a5a580;
                     box-shadow: unset;
                 }
-
+                &.active{
+                    background: #00a5a580;
+                }
             }
 
             >div:nth-last-child(1) button {
