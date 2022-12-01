@@ -1,5 +1,4 @@
 import Button from 'components/Button/Button';
-import Layout from 'components/Layout/Layout';
 import { EyeIcon } from '@heroicons/react/24/solid'
 import './Home.scss'
 import StringAvater from 'components/StringAvater/StringAvater';

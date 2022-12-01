@@ -1,6 +1,5 @@
-import { EyeIcon } from '@heroicons/react/24/solid';
+import { ChatBubbleLeftIcon } from '@heroicons/react/24/solid';
 import Button from 'components/Button/Button';
-import Layout from 'components/Layout/Layout';
 import StringAvater from 'components/StringAvater/StringAvater';
 import './Users.scss'
 const Users = () => {
@@ -12,7 +11,7 @@ const Users = () => {
                     <th>شماره دانشجویی</th>
                     <th>شماره تلفن</th>
                     <th>ایمیل</th>
-                    <th>مشاهده</th>
+                    <th>ارسال پیام</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +29,7 @@ const Users = () => {
                     <td><div>
                         aidin@aidin.aidin
                     </div></td>
-                    <td><div><Button><EyeIcon /></Button></div></td>
+                    <td><div><Button><ChatBubbleLeftIcon /></Button></div></td>
                 </tr>
                 <tr>
                     <td><div className="Users__table__name">
@@ -46,7 +45,7 @@ const Users = () => {
                     <td><div>
                         aidin@aidin.aidin
                     </div></td>
-                    <td><div><Button><EyeIcon /></Button></div></td>
+                    <td><div><Button><ChatBubbleLeftIcon /></Button></div></td>
                 </tr>
                 <tr>
                     <td><div className="Users__table__name">
@@ -62,7 +61,7 @@ const Users = () => {
                     <td><div>
                         aidin@aidin.aidin
                     </div></td>
-                    <td><div><Button><EyeIcon /></Button></div></td>
+                    <td><div><Button><ChatBubbleLeftIcon /></Button></div></td>
                 </tr>
                 <tr>
                     <td><div className="Users__table__name">
@@ -78,7 +77,7 @@ const Users = () => {
                     <td><div>
                         aidin@aidin.aidin
                     </div></td>
-                    <td><div><Button><EyeIcon /></Button></div></td>
+                    <td><div><Button><ChatBubbleLeftIcon /></Button></div></td>
                 </tr>
             </tbody>
         </table>
