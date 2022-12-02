@@ -1,12 +1,27 @@
 import React from 'react';
 import './Board.scss';
-import { PencilSquareIcon } from '@heroicons/react/24/solid';
-import { TrashIcon } from '@heroicons/react/24/solid';
+import { TrashIcon, PencilSquareIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import Button from 'components/Button/Button';
 
 const Board = () => {
     return (
         <div style={{ display: 'grid' }}>
+            <div className='boardNav' style={{ display: 'flex', justifyContent: 'space-between', alignItems:'center' }}>
+                <div style={{ display: 'flex' }}>
+                    <MagnifyingGlassIcon style={{width:22, position:'absolute', right:180, top:45}} />
+                    <input
+                        style={{ width: 200, height: 50, borderStyle: 'solid', borderRadius: 10, padding: 10, borderColor:'black' }}
+                        type="text"
+                        placeholder="جستجو . . ."
+                    />
+                </div>
+                <div style={{ display: 'flex' }}>
+                    <Button>
+                        اضافه کردن &nbsp;
+                        <span style={{fontSize: '2rem'}}>+</span>
+                    </Button>
+                </div>
+            </div>
             <div className='boardCard'>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <h1>
@@ -23,7 +38,7 @@ const Board = () => {
                     <Button sx={{ borderRadius: 50, marginLeft: 7, textAlign: 'center' }}>
                         <PencilSquareIcon style={{ width: 25 }} />
                     </Button>
-                    <Button sx={{ borderRadius: 50, textAlign: 'center', width: 20, height: 50 }}>
+                    <Button sx={{ borderRadius: 50, textAlign: 'center' }}>
                         <TrashIcon style={{ width: 25 }} />
                     </Button>
                 </div>
