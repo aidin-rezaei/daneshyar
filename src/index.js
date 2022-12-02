@@ -9,6 +9,7 @@ import { createStore } from 'redux';
 import allReducers from 'Redux/reducers/index';
 import { Provider } from 'react-redux';
 import Projects from 'pages/Admin/Projects/Projects';
+import Board from 'pages/Admin/Board/Board';
 
 const Layout = lazy(()=>import( 'components/Layout/Layout')) 
 const Loading = lazy(()=>import('components/Loading/Loading')) 
@@ -30,6 +31,8 @@ root.render(
               <Route path="home" element={<Home />} />
               <Route path="users" element={<Users />} />
               <Route path="projects" element={<Projects />} />
+              <Route path="board" element={<Board />} />
+              
             </Route>
             <Route path="/" element={<Login />} exact />
 

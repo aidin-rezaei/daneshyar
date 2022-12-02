@@ -1,0 +1,21 @@
+.boardCard {
+    background: linear-gradient(133deg, rgb(0 116 127 / 46%), #00a5a500);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: inset 1px 1px 5px rgb(255 255 255 / 35%), inset -1px -1px 5px rgb(0 0 0 / 35%),
+        0 0 50px rgb(0 0 0 / 30%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.782), rgb(255, 255, 255));
+}
+
+.boardButtonDiv {
+    button {
+        width: 50px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 10px;
+    }
+}
