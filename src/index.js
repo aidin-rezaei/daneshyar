@@ -1,4 +1,4 @@
-import React, {lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'assets/styles/base.scss';
@@ -8,14 +8,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { createStore } from 'redux';
 import allReducers from 'Redux/reducers/index';
 import { Provider } from 'react-redux';
-import Projects from 'pages/Admin/Projects/Projects';
-import Board from 'pages/Admin/Board/Board';
+import { adminMenu } from 'api/adminMenu';
 
-const Layout = lazy(()=>import( 'components/Layout/Layout')) 
-const Loading = lazy(()=>import('components/Loading/Loading')) 
-const Login = lazy(()=>import('pages/Login/Login')) 
-const Home = lazy(()=>import('pages/Admin/Home/Home')) 
-const Users = lazy(()=>import('pages/Admin/Users/Users')) 
+const Layout = lazy(() => import('components/Layout/Layout'))
+const Loading = lazy(() => import('components/Loading/Loading'))
+const Login = lazy(() => import('pages/Login/Login'))
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = createStore(
   allReducers,
@@ -28,11 +25,7 @@ root.render(
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/admin" element={<Layout />}>
-              <Route path="home" element={<Home />} />
-              <Route path="users" element={<Users />} />
-              <Route path="projects" element={<Projects />} />
-              <Route path="board" element={<Board />} />
-              
+              {adminMenu.map((item, key) => (adminMenu.length - 1 > key) ? (<Route key={key} path={item.route} element={item.component} />) : '')}
             </Route>
             <Route path="/" element={<Login />} exact />
 
