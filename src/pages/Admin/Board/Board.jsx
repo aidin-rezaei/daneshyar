@@ -1,67 +1,72 @@
 import React from 'react';
 import './Board.scss';
-import { TrashIcon, PencilSquareIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import Button from 'components/Button/Button';
 
 const Board = () => {
     return (
-        <div style={{ display: 'grid' }}>
-            <div className='boardNav' style={{ display: 'flex', justifyContent: 'space-between', alignItems:'center' }}>
-                <div style={{ display: 'flex' }}>
-                    <MagnifyingGlassIcon style={{width:22, position:'absolute', right:180, top:45}} />
+        <div>
+            <div className='boardNav' style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+                <div className='searchNavButton' style={{ display: 'flex', width:'50%' }}>
                     <input
-                        style={{ width: 200, height: 50, borderStyle: 'solid', borderRadius: 10, padding: 10, borderColor:'black' }}
+                        style={{ width: 220, height: 40, borderStyle: 'solid', padding: 10, borderTopRightRadius: 10, borderBottomRightRadius: 10 }}
                         type="text"
                         placeholder="جستجو . . ."
                     />
-                </div>
-                <div style={{ display: 'flex' }}>
-                    <Button>
-                        اضافه کردن &nbsp;
-                        <span style={{fontSize: '2rem'}}>+</span>
+                    <Button sx={{ width: 20 }} className='button5'>
+                        <MagnifyingGlassIcon style={{ width: 20 }} />
                     </Button>
                 </div>
-            </div>
-            <div className='boardCard'>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <h1>
-                        اعلانات امروز
-                    </h1>
-                    <h4>
-                        1401/09/10
-                    </h4>
-                </div>
-                <p>
-                    دید همه‌جانبه به مدیریت کارها و کنترل پروژه داشته باشید. .
-                </p>
-                <div className='boardButtonDiv' style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 20 }}>
-                    <Button sx={{ borderRadius: 50, marginLeft: 7, textAlign: 'center' }}>
-                        <PencilSquareIcon style={{ width: 25 }} />
-                    </Button>
-                    <Button sx={{ borderRadius: 50, textAlign: 'center' }}>
-                        <TrashIcon style={{ width: 25 }} />
-                    </Button>
+                <div style={{display:'flex', width:'50%'}}>
+                <Button className='button4'>
+                    اضافه کردن
+                </Button>
                 </div>
             </div>
-            <div className='boardCard'>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <h1>
-                        اعلانات امروز
-                    </h1>
-                    <h4>
-                        1401/09/10
-                    </h4>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+                <div className='boardCard' style={{ width: '60%' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <p style={{ fontSize: 20 }}>
+                            اعلانات امروز
+                        </p>
+                        <p style={{ fontSize: 18 }}>
+                            1401/09/10
+                        </p>
+                    </div>
+                    <p style={{ fontSize: 18 }}>
+                        دید همه‌جانبه به مدیریت کارها و کنترل پروژه داشته باشید. .
+                    </p>
+                    <div className='boardButtonDiv' style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 20 }}>
+                        <Button className='deleteButton'>
+                            پاک کردن
+                        </Button>
+                        <Button className='editButton'>
+                            ویرایش
+                        </Button>
+                    </div>
                 </div>
-                <p>
-                    با تعریف اهداف کوتاه یا بلند مدت، دسته‌بندی کارها و تعیین سررسید بازدهی را افزایش دهی
-                </p>
-                <div className='boardButtonDiv' style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 20 }}>
-                    <Button sx={{ borderRadius: 50, marginLeft: 7, textAlign: 'center' }}>
-                        <PencilSquareIcon style={{ width: 25 }} />
-                    </Button>
-                    <Button sx={{ borderRadius: 50, textAlign: 'center' }}>
-                        <TrashIcon style={{ width: 25 }} />
-                    </Button>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div className='boardCard' style={{ width: '60%' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <p style={{ fontSize: 20 }}>
+                            اعلانات امروز
+                        </p>
+                        <p style={{ fontSize: 18 }}>
+                            1401/09/10
+                        </p>
+                    </div>
+                    <p style={{ fontSize: 18 }}>
+                        دید همه‌جانبه به مدیریت کارها و کنترل پروژه داشته باشید. .
+                    </p>
+                    <div className='boardButtonDiv' style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 20 }}>
+                        <Button className='deleteButton'>
+                            پاک کردن
+                        </Button>
+                        <Button className='editButton'>
+                            ویرایش
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>
