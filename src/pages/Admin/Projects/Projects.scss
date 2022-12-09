@@ -1,0 +1,84 @@
+.projectNav {
+    background: white;
+    height: 60px;
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    box-shadow: inset 1px 1px 5px rgb(255 255 255 / 35%), inset -1px -1px 5px rgb(0 0 0 / 35%),
+        0 0 50px rgb(0 0 0 / 30%);
+    button {
+        width: 200px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 10px;
+        border-radius: 50px;
+    }
+}
+
+.searchNavButton{
+    button{
+        width: 60px !important;
+        border-top-left-radius: 10px !important;
+        border-bottom-left-radius: 10px !important;
+        border-bottom-right-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+        height: 40px;
+    }
+}
+
+.projectCard {
+    background: linear-gradient(133deg, rgb(0 116 127 / 46%), #00a5a500);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: inset 1px 1px 5px rgb(255 255 255 / 35%), inset -1px -1px 5px rgb(0 0 0 / 35%),
+        0 0 50px rgb(0 0 0 / 30%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.782), rgb(255, 255, 255));
+}
+
+.projectButtonDiv {
+    .button1 {
+        width: 120px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 0px;
+        font-size: 18px;
+        border-radius: 50px;
+        background-color: #fb2576 !important;
+        height: 35px;
+    }
+    .button2 {
+        width: 145px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 0px;
+        font-size: 18px;
+        border-radius: 50px;
+        margin-right: 5px;
+        margin-left: 5px;
+        height: 35px;
+    }
+    .button3 {
+        width: 150px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 0px !important;
+        font-size: 18px;
+        border-radius: 50px;
+        height: 35px;
+    }
+}
+
+.content__body{
+    padding: 0 !important;
+}
