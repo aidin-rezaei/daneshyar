@@ -6,19 +6,19 @@ import Button from 'components/Button/Button';
 const Board = () => {
     return (
         <div>
-            <div className='boardNav' style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
-                <div className='searchNavButton' style={{ display: 'flex', width:'50%' }}>
+            <div className='boardNav' style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems:'center' }}>
+                <div className='searchNavButton' style={{ display: 'flex' }}>
                     <input
-                        style={{ width: 220, height: 40, borderStyle: 'solid', padding: 10, borderTopRightRadius: 10, borderBottomRightRadius: 10 }}
+                        style={{ width: 300, height: 50, borderStyle: 'solid', padding: 10, borderTopRightRadius: 10, borderBottomRightRadius: 10 }}
                         type="text"
                         placeholder="جستجو . . ."
                     />
-                    <Button sx={{ width: 20 }} className='button5'>
+                    <Button sx={{ width: 70, height:50, padding:0 }} className='button5'>
                         <MagnifyingGlassIcon style={{ width: 20 }} />
                     </Button>
                 </div>
-                <div style={{display:'flex', width:'50%'}}>
-                <Button className='button4'>
+                <div style={{display:'flex'}}>
+                <Button sx={{width:130, height:50, whiteSpace:'nowrap', padding:0}}>
                     اضافه کردن
                 </Button>
                 </div>
