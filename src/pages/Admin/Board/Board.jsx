@@ -9,6 +9,7 @@ const Board = () => {
             <div className='boardNav' style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems:'center' }}>
                 <div className='searchNavButton' style={{ display: 'flex' }}>
                     <input
+                    className='boardSearchInput'
                         style={{ width: 300, height: 50, borderStyle: 'solid', padding: 10, borderTopRightRadius: 10, borderBottomRightRadius: 10 }}
                         type="text"
                         placeholder="جستجو . . ."
@@ -18,7 +19,7 @@ const Board = () => {
                     </Button>
                 </div>
                 <div style={{display:'flex'}}>
-                <Button sx={{width:130, height:50, whiteSpace:'nowrap', padding:0}}>
+                <Button sx={{width:130, height:50, whiteSpace:'nowrap', padding:0}} className='boardAddButton'>
                     اضافه کردن
                 </Button>
                 </div>

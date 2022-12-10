@@ -10,7 +10,7 @@ const Layout = ({ children, roll }) => {
     const dispatch = useDispatch();
     const [openMenu, setopenMenu] = useState(false)
     const MENU = useSelector(state => state.menu);
-    useEffect(()=>{setopenMenu(MENU)},[MENU])
+    useEffect(() => { setopenMenu(MENU) }, [MENU])
 
     const stringToColor = (string) => {
         let hash = 0;
@@ -40,6 +40,8 @@ const Layout = ({ children, roll }) => {
         };
     }
     const location = useLocation();
+
+
     return (
         <>
             <div className='sidebar'>
@@ -51,18 +53,19 @@ const Layout = ({ children, roll }) => {
                     <div className='hrbox'></div>
                     <div className='sidebar__body__menu'>
                         {adminMenu.map((item, key) => {
-
                             return (<>
                                 <div key={key} title={item.title}>
                                     <Button nodelay className={location.pathname === item.route ? "active" : ""} link={`${item.route}`}>{item.icon}{item.title}</Button>
                                 </div>
-
                             </>
                             )
                         })}
                     </div>
                 </div>
+                <div className='clickOuterSidebar' >
+                </div>
             </div>
+
             <div className='content'>
                 <div className='content__header'>
                     <div>
@@ -74,7 +77,7 @@ const Layout = ({ children, roll }) => {
                 </div>
                 <div className='content__body'>
                     {children}
-                    <Outlet/>
+                    <Outlet />
                 </div>
             </div>
         </>

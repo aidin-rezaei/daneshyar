@@ -9,12 +9,12 @@
         0 0 50px rgb(0 0 0 / 30%);
 }
 
-.content__body{
+.content__body {
     padding: 0 !important;
 }
 
-.searchNavButton{
-    .button5{
+.searchNavButton {
+    .button5 {
         border-top-left-radius: 10px !important;
         border-bottom-left-radius: 10px !important;
         border-bottom-right-radius: 0px !important;
@@ -33,8 +33,8 @@
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.782), rgb(255, 255, 255));
 }
 
-.boardButtonDiv{
-    .editButton{
+.boardButtonDiv {
+    .editButton {
         width: 145px !important;
         display: flex;
         justify-content: center;
@@ -47,7 +47,7 @@
         margin-left: 5px;
         height: 35px;
     }
-    .deleteButton{
+    .deleteButton {
         width: 145px !important;
         display: flex;
         justify-content: center;
@@ -58,5 +58,24 @@
         border-radius: 50px;
         background-color: #fb2576 !important;
         height: 35px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .boardSearchInput {
+        width: 160px !important;
+    }
+    .boardAddButton {
+        width: 70px !important;
+        font-size: 12px !important;
+    }
+    .button5 {
+        width: 40px !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .boardCard {
+        width: calc(100% - 20px) !important;
     }
 }
