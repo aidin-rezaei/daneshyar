@@ -70,7 +70,7 @@ const Projects = () => {
     ));
 
     return (
-        <div>
+        <div className='projects'>
             <div className='projectNav'>
                 <div className='searchNavButton' style={{ display: 'flex' }}>
                     <input

@@ -5,6 +5,11 @@ import {
   PresentationChartLineIcon,
   MegaphoneIcon
 } from "@heroicons/react/24/solid";
+// import Board from "pages/Admin/Board/Board";
+// import Home from "pages/Admin/Home/Home";
+// import Projects from "pages/Admin/Projects/Projects";
+// import Users from "pages/Admin/Users/Users";
+// import Login from "pages/Login/Login";
 import { lazy } from "react";
 const Login = lazy(() => import('pages/Login/Login'))
 const Home = lazy(() => import('pages/Admin/Home/Home'))

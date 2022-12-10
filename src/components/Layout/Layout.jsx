@@ -44,7 +44,7 @@ const Layout = ({ children, roll }) => {
 
     return (
         <>
-            <div className='sidebar'>
+            <div className={`sidebar ${openMenu ? 'active' : ''}`}>
                 <div className={`sidebar__body ${openMenu ? 'active' : ''}`}>
                     <div className='sidebar__body__title'>
                         <Avatar {...stringAvatar('آیدین رضایی')} />
@@ -62,7 +62,7 @@ const Layout = ({ children, roll }) => {
                         })}
                     </div>
                 </div>
-                <div className='clickOuterSidebar' >
+                <div className='clickOuterSidebar' onClick={() => { dispatch({ type: "TOGGLE_SIDEBAR_MENU" }) }} >
                 </div>
             </div>
 
