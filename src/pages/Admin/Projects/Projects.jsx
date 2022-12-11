@@ -30,27 +30,27 @@ const Projects = () => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 10, alignItems: 'center' }}>
                     <div style={{ display: 'flex', width: '25%', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <StringAvater name={output.name} />
-                        <div style={{ paddingRight: 10 }}>
-                            <p style={{ fontSize: 18 }}>
+                        <div className='projectAvatarName'>
+                            <p className='projectStudentName'>
                                 {output.name}
                             </p>
                         </div>
                     </div>
                     <div>
-                        <p style={{ fontSize: 18 }}>{output.stuNumber}</p>
+                        <p className='projectStuNumber'>{output.stuNumber}</p>
                     </div>
                     <div>
-                        <p style={{ fontSize: 18 }}>{output.date}</p>
+                        <p className='projectDateText'>{output.date}</p>
                     </div>
                 </div>
                 <hr />
                 <div style={{ paddingTop: 7 }}>
-                    <p style={{ fontSize: 20, fontWeight: 'bold' }}>
+                    <p className='projectHeadText'>
                         {output.subject}
                     </p>
                 </div>
                 <div style={{ paddingBottom: 20 }}>
-                    <p style={{ fontSize: 18 }}>
+                    <p className='projectDescriptionText'>
                         {output.description}
                     </p>
                 </div>
