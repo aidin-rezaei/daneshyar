@@ -9,11 +9,19 @@
         0 0 50px rgb(0 0 0 / 30%);
 }
 
+.chatNavMobile {
+    background: white;
+    height: 60px;
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0px 6px;
+    padding-top: 5px;
+}
 
-
-.stuChat{
+.stuChat {
     width: 600px;
-    height: 200px;
+    height: auto;
     padding: 8px 8px 8px 12px;
     background-color: white;
     border-bottom-right-radius: 10px;
@@ -24,16 +32,35 @@
     position: relative;
 }
 
-.chatScroll{
+.stuChatMobile {
+    width: 255px;
+    height: auto !important;
+    padding: 8px 8px 8px 8px;
+    background-color: white;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.chatScroll {
     height: calc(100% - 66px);
     // overflow: auto;
     margin-top: 25px;
 }
 
-.teacherChat{
-    background-color: #E3FFF7;
+.chatScrollMobile {
+    height: calc(100% - 66px);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.teacherChat {
+    background-color: #e3fff7;
     width: 600px;
-    height: 200px;
+    height: auto;
     padding: 12px 10px 13px 28px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -43,26 +70,38 @@
     position: relative;
 }
 
-.inputChatDiv{
+.teacherChatMobile {
+    background-color: #e3fff7;
+    width: 255px;
+    height: auto;
+    padding: 8px 8px 8px 8px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.inputChatDiv {
     border: 1px solid #707070 !important;
 }
 
-.chatDownloadButton{
-    button{
+.chatDownloadButton {
+    button {
         width: 130px !important;
         height: 40px !important;
         padding: 0 !important;
     }
 }
 
-.triangle-after{
+.triangle-after {
     width: 100px;
     height: 50px;
     background: transparent;
     position: relative;
 }
 
-.stuChat::after{
+.stuChat::after {
     content: "";
     position: absolute;
     left: -20px;
@@ -79,7 +118,113 @@
     border-top: 20px solid transparent;
     border-bottom: 00px solid transparent;
     border-right: 12px solid transparent;
-    border-left: 10px solid #E3FFF7;
+    border-left: 10px solid #e3fff7;
     right: -20px;
     bottom: 0px;
-  }
+}
+
+.chatAvatarText{
+    font-size: 18px;
+    white-space: nowrap;
+    padding-right: 5px;
+}
+
+.chatStuNumberText{
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.chatPhoneNumberText{
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.chatEmailText{
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.chatProjectSubject{
+    font-size: 18px;
+    padding-right: 37px;
+}
+
+.chatProjectSubjectText{
+    font-size: 18px;
+    color: #22BDD5;
+}
+
+.stuTypeChat{
+    font-size: 16px;
+}
+
+.stuDownloadText{
+    font-size: 18px;
+}
+
+.chatDropDownDiv {
+    display: flex;
+    position: absolute;
+    width: 100%;
+}
+
+.chatDropDown {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    overflow: hidden;
+    background: white;
+    z-index: 1111;
+    &__body {
+        transition: height 0.3s ease;
+        background: white;
+        overflow: hidden;
+        height: 0;
+    }
+    &.active {
+        height: 88px !important;
+        &__body {
+            height: 88px !important;
+        }
+    }
+}
+
+@media (min-width: 601px) and (max-width: 992px) {
+    .chatAvatarText{
+        font-size: 12px;
+        padding-right: 0 !important;
+    }
+    .chatStuNumberText{
+        font-size: 12px;
+    }
+    .chatPhoneNumberText{
+        font-size: 12px;
+    }
+    .chatEmailText{
+        font-size: 12px;
+    }
+    .chatNav{
+        padding: 0 3px !important;
+        height: 100px !important;
+    }
+    .chatProjectSubjectText{
+        font-size: 16px;
+    }
+    .chatProjectSubject{
+        font-size: 16px;
+    }
+    .stuTypeChat{
+        font-size: 14px;
+    }
+    .stuDownloadText{
+        font-size: 14px;
+    }
+    .chatDownloadButton{
+        button{
+            width: 100px !important;
+            height: 30px !important;
+            font-size: 14px;
+        }
+    }
+}
