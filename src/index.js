@@ -14,6 +14,8 @@ import Chat from 'pages/Chat/Chat';
 const Layout = lazy(() => import('components/Layout/Layout'))
 const Loading = lazy(() => import('components/Loading/Loading'))
 const Login = lazy(() => import('pages/Login/Login'))
+const Alogin = lazy(() => import('pages/Alogin/Alogin'))
+const SignUp = lazy(() => import('pages/SignUp/SignUp'))
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = createStore(
   allReducers,
@@ -30,7 +32,8 @@ root.render(
               <Route path="chat" element={<Chat />} exact />
             </Route>
             <Route path="/" element={<Login />} exact />
-
+            <Route path="a-login" element={<Alogin />} exact />
+            <Route path="SignUp" element={<SignUp />} exact />
           </Routes>
         </Suspense>
       </BrowserRouter>
