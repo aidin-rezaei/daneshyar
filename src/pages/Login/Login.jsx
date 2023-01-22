@@ -12,10 +12,16 @@ const Login = () => {
                     <h1>پیمن</h1>
                     <p>سامانه مدیریت پایان نامه</p>
                 </div>
-                <Input label='شماره دانشجویی'/>
-                <Input label='رمز عبور'/>
+                <Input label='شماره دانشجویی' />
+                <Input label='رمز عبور' />
                 <div className='login__btn'>
-                <Button link='/admin/home'>ورود</Button>
+                    <Button link='/admin/home'>ورود</Button>
+
+                </div>
+                <div className="login__box_btn">
+
+                    <Button link='/SignUp'>ثبت نام</Button>
+                    <Button link='/a-login'>ورود استاد</Button>
                 </div>
             </CardG>
         </div>

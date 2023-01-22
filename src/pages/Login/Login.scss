@@ -1,4 +1,18 @@
 .login{
+    &__box_btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+        & button{
+            width: 100%;
+            padding-left: 10px;
+            padding-right: 10px;
+            background: transparent;
+            color: #025c75;
+        }
+    }
     &__btn{
         margin-top: 50px;
         width: 100%;
