@@ -1,10 +1,35 @@
 
+import { login } from 'api/api';
+import axios from 'axios';
 import Button from 'components/Button/Button';
 import CardG from 'components/CardG/CardG';
 import Input from 'components/Input/Input';
+import { useState } from 'react';
 
 import './Login.scss'
 const Login = () => {
+    const [name, setname] = useState('')
+    const [pass, setpass] = useState('')
+    const clicklogin=()=>{
+        axios.post(
+            login(),
+            {
+                studentNumber: name,
+                password: pass,
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        )
+            .then(function (response) {
+                // dispatch({ type: "Authorization_TOKEN", value: response.data.token });
+                console.log(response);
+            })
+            .catch((err) => console.log(err))
+    }
+
     return (
         <div className='login'>
             <CardG>
@@ -12,10 +37,10 @@ const Login = () => {
                     <h1>پیمن</h1>
                     <p>سامانه مدیریت پایان نامه</p>
                 </div>
-                <Input label='شماره دانشجویی' />
-                <Input label='رمز عبور' />
+                <Input value={setname} label='شماره دانشجویی' />
+                <Input value={setpass} typeInput="password" label='رمز عبور' />
                 <div className='login__btn'>
-                    <Button link='/admin/home'>ورود</Button>
+                    <Button click={clicklogin}>ورود</Button>
 
                 </div>
                 <div className="login__box_btn">
