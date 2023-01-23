@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Input.scss'
-const Input = ({ idx, valid, typeInput, change, label, value, type }) => {
+const Input = ({ idx, valid, typeInput, change, label, value, type ,name}) => {
   const [showPass, setShowPass] = useState(
     typeInput === 'password' ? true : false
   )
@@ -57,6 +57,7 @@ const Input = ({ idx, valid, typeInput, change, label, value, type }) => {
       <input
         type={`${showPass ? 'password' : 'text'}`}
         id={idx}
+        name={name}
         placeholder="."
         onChange={(e) => { value(e.target.value) }}
       />

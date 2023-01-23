@@ -1,31 +1,54 @@
 
-import { login } from 'api/api';
+import { getuser, login } from 'api/api';
 import axios from 'axios';
 import Button from 'components/Button/Button';
 import CardG from 'components/CardG/CardG';
 import Input from 'components/Input/Input';
+import Cookies from 'js-cookie';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 import './Login.scss'
 const Login = () => {
+    const navigate = useNavigate()
     const [name, setname] = useState('')
     const [pass, setpass] = useState('')
-    const clicklogin=()=>{
+    const clicklogin = () => {
+
         axios.post(
             login(),
             {
-                studentNumber: name,
                 password: pass,
+                studentNumber: name,
             },
             {
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "multipart/form-data",
                 },
             }
         )
             .then(function (response) {
                 // dispatch({ type: "Authorization_TOKEN", value: response.data.token });
-                console.log(response);
+                Cookies.set('user', response.data.data.user[0].studentNumber, { expires: 1 })
+                Cookies.set('auth', response.data.data.user[0].password, { expires: 1 })
+                axios.post(
+                    getuser(),
+                    {
+                        studentNumber: response.data.data.user[0].studentNumber,
+                    },
+                    {
+                        headers: {
+                            "Content-Type": "multipart/form-data",
+                            "Authorization": response.data.data.user[0].password
+                        },
+                    }
+                )
+                    .then(function (response2) {
+                        console.log(response2);
+                        navigate('/admin/home')
+                    })
+                    .catch((err) => console.log(err))
+
             })
             .catch((err) => console.log(err))
     }

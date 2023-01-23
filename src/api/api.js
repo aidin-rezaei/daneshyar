@@ -1,7 +1,10 @@
 import React from "react";
-export const baseUrl = () => {return("http://localhost/back-end-daneshyar") }
+export const baseUrl = () => {return("https://aidinr.ir/api/back-end-daneshyar") }
 export const login = (e) => { return (e !== undefined) ? e : baseUrl()+"/login.php"}
 export const signup = (e) => { return (e !== undefined) ? e : baseUrl()+"/singup.php"}
+export const getuser = (e) => { return (e !== undefined) ? e : baseUrl()+"/getuser.php"}
+export const alogin = (e) => { return (e !== undefined) ? e : baseUrl()+"/alogin.php"}
+export const getadmin = (e) => { return (e !== undefined) ? e : baseUrl()+"/getadmin.php"}
 // export const createToken = (e) => { return (e !== undefined) ? e : baseUrl2()+"/authenticate" }
 // export const registerUsers = (e) => { return (e !== undefined) ? e : baseUrl2()+"/users/update" }
 // export const getUsers = (e) => { return (e !== undefined) ? e : baseUrl2()+"/getUsers" }
