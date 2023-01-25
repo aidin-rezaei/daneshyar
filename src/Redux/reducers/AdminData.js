@@ -6,10 +6,7 @@ const initialState = {
     phone
         :
         "09038007960",
-    studentNumber
-        :
-        "99110016302007",
-    supervisor
+    id
         :
         "4",
     username
@@ -17,14 +14,13 @@ const initialState = {
         "آیدین رضایی"
 }
 
-const UserData = (state = initialState, action) => {
+const AdminData = (state = initialState, action) => {
     switch (action.type) {
-        case "SET_USER_DATA":
+        case "SET_ADMIN_DATA":
             return {
                 email: action.value.email,
                 phone: action.value.phone,
-                studentNumber: action.value.studentNumber,
-                supervisor: action.value.supervisor,
+                id: action.value.id,
                 username: action.value.username
             }
         default:
@@ -32,4 +28,4 @@ const UserData = (state = initialState, action) => {
     }
 }
 
-export default UserData;
+export default AdminData;

@@ -7,9 +7,11 @@ import { useNavigate } from 'react-router';
 import { alogin, getadmin } from 'api/api';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
 
 const Alogin = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [name, setname] = useState('')
     const [pass, setpass] = useState('')
     const clicklogin = () => {
@@ -27,13 +29,13 @@ const Alogin = () => {
             }
         )
             .then(function (response) {
-                // dispatch({ type: "Authorization_TOKEN", value: response.data.token });
+
                 Cookies.set('user', response.data.data.user[0].email, { expires: 1 })
                 Cookies.set('auth', response.data.data.user[0].password, { expires: 1 })
                 axios.post(
                     getadmin(),
                     {
-                        studentNumber: response.data.data.user[0].email,
+                        username: response.data.data.user[0].email,
                     },
                     {
                         headers: {
@@ -45,6 +47,15 @@ const Alogin = () => {
                     .then(function (response2) {
                         console.log(response2);
                         navigate('/admin/home')
+                        dispatch({
+                            type: "GET_LOCATION",
+                            value: {
+                                email: response.data.data.user[0].email,
+                                phone: response.data.data.user[0].phone,
+                                id: response.data.data.user[0].id,
+                                username: response.data.data.user[0].username
+                            },
+                        })
                     })
                     .catch((err) => console.log(err))
 

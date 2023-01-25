@@ -1,27 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Board.scss';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import Button from 'components/Button/Button';
+import Modal from 'components/Modal/Modal';
 
 const Board = () => {
+    const [modalAdd, setModalAdd] = useState(false)
     return (
         <div>
-            <div className='boardNav' style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems:'center' }}>
+            {
+                modalAdd ?
+                    <Modal setstate={setModalAdd}>
+                        123
+                    </Modal>
+                    : ""
+            }
+
+            <div className='boardNav' style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div className='searchNavButton' style={{ display: 'flex' }}>
                     <input
-                    className='boardSearchInput'
-                        style={{ width: 300, height: 50, borderStyle: 'solid', padding: 10, borderTopRightRadius: 10, borderBottomRightRadius: 10 }}
+                        className='boardSearchInput'
+                        style={{ width: 300, height: 40, borderStyle: 'solid', padding: 10, borderTopRightRadius: 10, borderBottomRightRadius: 10 }}
                         type="text"
                         placeholder="جستجو . . ."
                     />
-                    <Button sx={{ width: 70, height:50, padding:0 }} className='button5'>
+                    <Button sx={{ width: 70, height: 40, padding: 0 }} className='button5'>
                         <MagnifyingGlassIcon style={{ width: 20 }} />
                     </Button>
                 </div>
-                <div style={{display:'flex'}}>
-                <Button sx={{width:130, height:50, whiteSpace:'nowrap', padding:0}} className='boardAddButton'>
-                    اضافه کردن
-                </Button>
+                <div >
+                    <Button sx={{ width: 130, height: 40, whiteSpace: 'nowrap', padding: 0 }} click={() => setModalAdd(true)} className='boardAddButton'>
+                        اضافه کردن
+                    </Button>
                 </div>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>

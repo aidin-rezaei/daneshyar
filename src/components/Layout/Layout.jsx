@@ -6,10 +6,12 @@ import { useEffect, useState } from 'react';
 import { Avatar } from '@mui/material';
 import { Outlet, useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import Modal from 'components/Modal/Modal';
 const Layout = ({ children, roll }) => {
     const dispatch = useDispatch();
     const [openMenu, setopenMenu] = useState(false)
     const MENU = useSelector(state => state.menu);
+    const USER = useSelector(state => state.AdminData);
     useEffect(() => { setopenMenu(MENU) }, [MENU])
 
     const stringToColor = (string) => {
@@ -41,14 +43,15 @@ const Layout = ({ children, roll }) => {
     }
     const location = useLocation();
 
-
+    // const MODAL = useSelector(state => state.Modal);
     return (
         <>
+        {/* {  MODAL?<Modal title={"ایجاد اعلان"}>hello</Modal>:""  } */}
             <div className={`sidebar ${openMenu ? 'active' : ''}`}>
                 <div className={`sidebar__body ${openMenu ? 'active' : ''}`}>
                     <div className='sidebar__body__title'>
-                        <Avatar {...stringAvatar('آیدین رضایی')} />
-                        <p className='sidebar__body__title__username'>آیدین رضایی</p>
+                        <Avatar {...stringAvatar(USER.username)} />
+                        <p className='sidebar__body__title__username'>{USER.username}</p>
                     </div>
                     <div className='hrbox'></div>
                     <div className='sidebar__body__menu'>
@@ -73,7 +76,7 @@ const Layout = ({ children, roll }) => {
                             <Bars3Icon />
                         </Button>
                     </div>
-                    <h1 style={{ color: "#fff" }}>پیمن</h1>
+                    <h1 style={{ color: "#fff" }} >پیمن</h1>
                 </div>
                 <div className='content__body'>
                     {children}
