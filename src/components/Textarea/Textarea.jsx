@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './Input.scss'
-const Input = ({ idx, valid, typeInput, change, label, value,changev, type ,name}) => {
+import './Textarea.scss'
+const Textarea = ({ idx, valid, typeInput, change, label, value,changev, type ,name}) => {
   const [showPass, setShowPass] = useState(
     typeInput === 'password' ? true : false
   )
@@ -54,7 +54,7 @@ const Input = ({ idx, valid, typeInput, change, label, value,changev, type ,name
   }
   return (
     <div className="input-text">
-      <input
+      <textarea
         type={`${showPass ? 'password' : 'text'}`}
         id={idx}
         name={name}
@@ -68,4 +68,4 @@ const Input = ({ idx, valid, typeInput, change, label, value,changev, type ,name
   )
 }
 
-export default Input
+export default Textarea

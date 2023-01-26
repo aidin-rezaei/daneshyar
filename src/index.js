@@ -10,6 +10,7 @@ import allReducers from 'Redux/reducers/index';
 import { Provider } from 'react-redux';
 import { adminMenu } from 'api/adminMenu';
 import Chat from 'pages/Chat/Chat';
+import { userMenu } from 'api/userMenu';
 
 const Layout = lazy(() => import('components/Layout/Layout'))
 const Loading = lazy(() => import('components/Loading/Loading'))
@@ -30,6 +31,10 @@ root.render(
             <Route path="/admin" element={<Layout />}>
               {adminMenu.map((item, key) => (adminMenu.length - 1 > key) ? (<Route key={key} path={item.route} element={item.component} />) : '')}
               <Route path="chat" element={<Chat />} exact />
+            </Route>
+            <Route path="/user" element={<Layout type="user"/>}>
+              {userMenu.map((item, key) => (userMenu.length - 1 > key) ? (<Route key={key} path={item.route} element={item.component} />) : '')}
+              {/* <Route path="chat" element={<Chat />} exact /> */}
             </Route>
             <Route path="/" element={<Login />} exact />
             <Route path="a-login" element={<Alogin />} exact />

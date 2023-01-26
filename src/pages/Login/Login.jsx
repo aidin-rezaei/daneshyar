@@ -6,11 +6,13 @@ import CardG from 'components/CardG/CardG';
 import Input from 'components/Input/Input';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 import './Login.scss'
 const Login = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch();
     const [name, setname] = useState('')
     const [pass, setpass] = useState('')
     const clicklogin = () => {
@@ -45,6 +47,7 @@ const Login = () => {
                 )
                     .then(function (response2) {
                         console.log(response2);
+
                         navigate('/admin/home')
                     })
                     .catch((err) => console.log(err))
@@ -60,8 +63,8 @@ const Login = () => {
                     <h1>پیمن</h1>
                     <p>سامانه مدیریت پایان نامه</p>
                 </div>
-                <Input value={setname} label='شماره دانشجویی' />
-                <Input value={setpass} typeInput="password" label='رمز عبور' />
+                <Input changev={setname} value={name} label='شماره دانشجویی' />
+                <Input changev={setpass} value={pass} typeInput="password" label='رمز عبور' />
                 <div className='login__btn'>
                     <Button click={clicklogin}>ورود</Button>
 

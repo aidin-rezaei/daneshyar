@@ -7,13 +7,46 @@ import { Avatar } from '@mui/material';
 import { Outlet, useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'components/Modal/Modal';
+import { getadmin } from 'api/api';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 const Layout = ({ children, roll }) => {
     const dispatch = useDispatch();
     const [openMenu, setopenMenu] = useState(false)
     const MENU = useSelector(state => state.menu);
     const USER = useSelector(state => state.AdminData);
     useEffect(() => { setopenMenu(MENU) }, [MENU])
+    useEffect(()=>{
+        axios.post(
+            getadmin(),
+            {
+                username: Cookies.get("user"),
+            },
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    "Authorization": Cookies.get("auth")
+                },
+            }
+        )
+            .then(function (response2) {
+                // console.log(response2);
+                const data = response2.data.data.admin[0];
+                // console.log(data);
+                dispatch({
+                    type: "SET_ADMIN_DATA",
+                    value: {
+                        email: data.email,
+                        phone: data.phone,
+                        id: data.id,
+                        username: data.username,
+                    },
+                })
 
+            })
+            .catch((err) => console.log(err))
+    },[])
+    // console.log(USER);
     const stringToColor = (string) => {
         let hash = 0;
         let i;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Board.scss';
+import './Home.scss';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import Button from 'components/Button/Button';
 import Modal from 'components/Modal/Modal';
@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
-const Board = () => {
+const Home = () => {
     const [modalAdd, setModalAdd] = useState(false);
     const [itemsBords, setItemsBords] = useState([]);
     const [discretion, setDiscretion] = useState("");
@@ -133,4 +133,4 @@ const Board = () => {
     );
 };
 
-export default Board;
+export default Home;
