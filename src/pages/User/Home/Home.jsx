@@ -16,63 +16,63 @@ const Home = () => {
     const [discretion, setDiscretion] = useState("");
     const [title, setTitle] = useState("");
     const USER = useSelector(state => state.AdminData);
-    const dords = () => {
-        axios.post(
-            getbords(),
-            {
-                username: USER.email,
-                id: USER.id
-            },
-            {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                    "Authorization": Cookies.get("auth")
-                },
-            }
-        )
-            .then(function (response2) {
-                setItemsBords(response2.data.data.posts)
-                // navigate('/admin/home')
-            })
-            .catch((err) => console.log(err))
-    }
-    useEffect(() => {
-        dords()
-    }, [])
-    const addbords = () => {
-        if (title !== '' && discretion !== '') {
-            axios.post(
-                createbord(),
-                {
-                    username: USER.email,
-                    title: title,
-                    discretion: discretion,
-                    path_file: ' ',
-                    supervisors: USER.id
-                },
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                        "Authorization": Cookies.get("auth")
-                    },
-                }
-            )
-                .then(function (response2) {
-                    console.log(response2);
-                    dords()
-                    setModalAdd(false)
-                    setTitle('')
-                    setDiscretion('')
-                })
-                .catch((err) => console.log(err))
+    // const dords = () => {
+    //     axios.post(
+    //         getbords(),
+    //         {
+    //             username: USER.email,
+    //             id: USER.id
+    //         },
+    //         {
+    //             headers: {
+    //                 "Content-Type": "multipart/form-data",
+    //                 "Authorization": Cookies.get("auth")
+    //             },
+    //         }
+    //     )
+    //         .then(function (response2) {
+    //             setItemsBords(response2.data.data.posts)
+    //             // navigate('/admin/home')
+    //         })
+    //         .catch((err) => console.log(err))
+    // }
+    // useEffect(() => {
+    //     dords()
+    // }, [])
+    // const addbords = () => {
+    //     if (title !== '' && discretion !== '') {
+    //         axios.post(
+    //             createbord(),
+    //             {
+    //                 username: USER.email,
+    //                 title: title,
+    //                 discretion: discretion,
+    //                 path_file: ' ',
+    //                 supervisors: USER.id
+    //             },
+    //             {
+    //                 headers: {
+    //                     "Content-Type": "multipart/form-data",
+    //                     "Authorization": Cookies.get("auth")
+    //                 },
+    //             }
+    //         )
+    //             .then(function (response2) {
+    //                 console.log(response2);
+    //                 dords()
+    //                 setModalAdd(false)
+    //                 setTitle('')
+    //                 setDiscretion('')
+    //             })
+    //             .catch((err) => console.log(err))
 
 
-        }
-    }
+    //     }
+    // }
 
     return (
         <div className='bords'>
-            {
+            {/* {
                 modalAdd ?
                     <Modal setstate={setModalAdd}>
                         <div className='content__modal__addbord'>
@@ -82,7 +82,7 @@ const Home = () => {
                         </div>
                     </Modal>
                     : ""
-            }
+            } */}
 
             <div className='boardNav' style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div className='searchNavButton' style={{ display: 'flex' }}>
@@ -102,7 +102,7 @@ const Home = () => {
                     </Button>
                 </div>
             </div>
-                {
+                {/* {
                     itemsBords.map(items => (
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <div className='boardCard' style={{ width: '60%' }}>
@@ -128,7 +128,7 @@ const Home = () => {
                             </div>
                         </div>
                     ))
-                }
+                } */}
         </div>
     );
 };

@@ -53,7 +53,7 @@ export const userMenu = [
     ]
   },
   {
-    title: "دانلود فایل های پروپوزال",
+    title: "دفترچه پروپوزال",
     route: basepath + 'dproject',
     component: <Home />,
     icon: <MegaphoneIcon />,

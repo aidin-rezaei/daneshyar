@@ -32,7 +32,7 @@ root.render(
               {adminMenu.map((item, key) => (adminMenu.length - 1 > key) ? (<Route key={key} path={item.route} element={item.component} />) : '')}
               <Route path="chat" element={<Chat />} exact />
             </Route>
-            <Route path="/user" element={<Layout type="user"/>}>
+            <Route path="/user" element={<Layout roll="user"/>}>
               {userMenu.map((item, key) => (userMenu.length - 1 > key) ? (<Route key={key} path={item.route} element={item.component} />) : '')}
               {/* <Route path="chat" element={<Chat />} exact /> */}
             </Route>

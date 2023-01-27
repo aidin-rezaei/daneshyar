@@ -10,13 +10,14 @@ import Modal from 'components/Modal/Modal';
 import { getadmin } from 'api/api';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { userMenu } from 'api/userMenu';
 const Layout = ({ children, roll }) => {
     const dispatch = useDispatch();
     const [openMenu, setopenMenu] = useState(false)
     const MENU = useSelector(state => state.menu);
     const USER = useSelector(state => state.AdminData);
     useEffect(() => { setopenMenu(MENU) }, [MENU])
-    useEffect(()=>{
+    useEffect(() => {
         axios.post(
             getadmin(),
             {
@@ -45,7 +46,7 @@ const Layout = ({ children, roll }) => {
 
             })
             .catch((err) => console.log(err))
-    },[])
+    }, [])
     // console.log(USER);
     const stringToColor = (string) => {
         let hash = 0;
@@ -79,7 +80,7 @@ const Layout = ({ children, roll }) => {
     // const MODAL = useSelector(state => state.Modal);
     return (
         <>
-        {/* {  MODAL?<Modal title={"ایجاد اعلان"}>hello</Modal>:""  } */}
+            {/* {  MODAL?<Modal title={"ایجاد اعلان"}>hello</Modal>:""  } */}
             <div className={`sidebar ${openMenu ? 'active' : ''}`}>
                 <div className={`sidebar__body ${openMenu ? 'active' : ''}`}>
                     <div className='sidebar__body__title'>
@@ -88,14 +89,25 @@ const Layout = ({ children, roll }) => {
                     </div>
                     <div className='hrbox'></div>
                     <div className='sidebar__body__menu'>
-                        {adminMenu.map((item, key) => {
-                            return (<>
-                                <div key={key} title={item.title}>
-                                    <Button nodelay className={location.pathname === item.route ? "active" : ""} link={`${item.route}`}>{item.icon}{item.title}</Button>
-                                </div>
-                            </>
-                            )
-                        })}
+                        {roll == 'user' ?
+                            userMenu.map((item, key) => {
+                                return (<>
+                                    <div key={key} title={item.title}>
+                                        <Button nodelay className={location.pathname === item.route ? "active" : ""} link={`${item.route}`}>{item.icon}{item.title}</Button>
+                                    </div>
+                                </>
+                                )
+                            })
+                            :
+                            adminMenu.map((item, key) => {
+                                return (<>
+                                    <div key={key} title={item.title}>
+                                        <Button nodelay className={location.pathname === item.route ? "active" : ""} link={`${item.route}`}>{item.icon}{item.title}</Button>
+                                    </div>
+                                </>
+                                )
+                            })
+                        }
                     </div>
                 </div>
                 <div className='clickOuterSidebar' onClick={() => { dispatch({ type: "TOGGLE_SIDEBAR_MENU" }) }} >
