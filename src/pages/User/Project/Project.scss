@@ -1,0 +1,119 @@
+.boardNav {
+    background: white;
+    height: 60px;
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    box-shadow: inset 1px 1px 5px rgb(255 255 255 / 35%), inset -1px -1px 5px rgb(0 0 0 / 35%),
+        0 0 50px rgb(0 0 0 / 30%);
+}
+
+.content__body {
+    padding: 0 !important;
+}
+.bords {
+    overflow-y: auto;
+    height: 100%;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #555;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+}
+.searchNavButton {
+    .button5 {
+        border-top-left-radius: 10px !important;
+        border-bottom-left-radius: 10px !important;
+        border-bottom-right-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.content__modal__addbord{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    button{
+        margin-top: 10px;
+    }
+}
+.boardCard {
+    background: linear-gradient(133deg, rgb(0 116 127 / 46%), #00a5a500);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: inset 1px 1px 5px rgb(255 255 255 / 35%), inset -1px -1px 5px rgb(0 0 0 / 35%),
+        0 0 50px rgb(0 0 0 / 30%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.782), rgb(255, 255, 255));
+}
+.boardSearchInput {
+    width: 200px !important;
+    border: 1px solid #00000054;
+    outline: unset;
+}
+.boardButtonDiv {
+    .editButton {
+        width: 145px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 0px;
+        font-size: 18px;
+        border-radius: 50px;
+        margin-right: 5px;
+        margin-left: 5px;
+        height: 35px;
+    }
+    .deleteButton {
+        width: 145px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 0px;
+        font-size: 18px;
+        border-radius: 50px;
+        background-color: #fb2576 !important;
+        height: 35px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .boardSearchInput {
+        width: 160px !important;
+    }
+    .boardAddButton {
+        width: 70px !important;
+        font-size: 12px !important;
+    }
+    .button5 {
+        width: 40px !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .boardCard {
+        width: calc(100% - 20px) !important;
+    }
+}

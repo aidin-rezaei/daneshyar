@@ -158,7 +158,7 @@ const Chat = () => {
                         <div className='teacherChat'>
                             <div style={{ display: 'flex' }}>
                                 <p className='stuTypeChat'>
-                                    سلام پسرم
+                                    سلام بفرماید
                                 </p>
                             </div>
                             <hr />

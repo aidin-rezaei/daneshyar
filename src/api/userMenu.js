@@ -3,9 +3,18 @@ import {
   HomeIcon,
   AcademicCapIcon,
   PresentationChartLineIcon,
-  MegaphoneIcon
+  MegaphoneIcon,
+  DocumentTextIcon,
+  PaperClipIcon,
+  PlusIcon,
+  ChatBubbleLeftRightIcon
 } from "@heroicons/react/24/solid";
+import Chat from "pages/Chat/Chat";
+import Archive from "pages/User/Archive/Archive";
+import DProject from "pages/User/DProject/DProject";
+import GProject from "pages/User/GProject/GProject";
 import Home from "pages/User/Home/Home";
+import Project from "pages/User/Project/Project";
 // import Board from "pages/Admin/Board/Board";
 // import Home from "pages/Admin/Home/Home";
 // import Projects from "pages/Admin/Projects/Projects";
@@ -28,23 +37,23 @@ export const userMenu = [
       { menu: '' },
     ]
   },
-  {
-    title: "پروقایل",
-    route: basepath + 'profile',
-    component: <Home />,
-    icon: <AcademicCapIcon />,
-    subMenuIcon: <div></div>,
-    subMenu: [
-      { menu: '' },
-      { menu: '' },
-      { menu: '' },
-    ]
-  },
+  // {
+  //   title: "پروفایل",
+  //   route: basepath + 'profile',
+  //   component: <Home />,
+  //   icon: <AcademicCapIcon />,
+  //   subMenuIcon: <div></div>,
+  //   subMenu: [
+  //     { menu: '' },
+  //     { menu: '' },
+  //     { menu: '' },
+  //   ]
+  // },
   {
     title: "راهنما انتخاب پروژه",
     route: basepath + 'gproject',
-    component: <Home />,
-    icon: <PresentationChartLineIcon />,
+    component: <GProject />,
+    icon: <AcademicCapIcon />,
     subMenuIcon: <div></div>,
     subMenu: [
       { menu: '' },
@@ -55,8 +64,8 @@ export const userMenu = [
   {
     title: "دفترچه پروپوزال",
     route: basepath + 'dproject',
-    component: <Home />,
-    icon: <MegaphoneIcon />,
+    component: <DProject />,
+    icon: <DocumentTextIcon />,
     subMenuIcon: <div></div>,
     subMenu: [
       { menu: '' },
@@ -67,8 +76,8 @@ export const userMenu = [
   {
     title: "چت با استاد",
     route: basepath + 'chat',
-    component: <Home />,
-    icon: <MegaphoneIcon />,
+    component: <Chat roll={'user'} />,
+    icon: <ChatBubbleLeftRightIcon />,
     subMenuIcon: <div></div>,
     subMenu: [
       { menu: '' },
@@ -79,8 +88,8 @@ export const userMenu = [
   {
     title: "انتخاب پروژه",
     route: basepath + 'project',
-    component: <Home />,
-    icon: <MegaphoneIcon />,
+    component: <Project />,
+    icon: <PlusIcon />,
     subMenuIcon: <div></div>,
     subMenu: [
       { menu: '' },
@@ -91,8 +100,8 @@ export const userMenu = [
   {
     title: "ارشیو نمونه پروپوزال",
     route: basepath + 'archive',
-    component: <Home />,
-    icon: <MegaphoneIcon />,
+    component: <Archive />,
+    icon: <PaperClipIcon />,
     subMenuIcon: <div></div>,
     subMenu: [
       { menu: '' },

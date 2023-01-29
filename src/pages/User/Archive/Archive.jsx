@@ -1,12 +1,12 @@
-import './GProject.scss'
-import imgs from 'assets/files/proj.png'
+import './Archive.scss'
+import imgs from 'assets/files/Archive.png'
 import Button from 'components/Button/Button'
-import pdf from 'assets/files/gproject.pdf'
+import pdf from 'assets/files/Archive.pdf'
 import { useRef } from 'react'
-const GProject = () => {
+const Archive = () => {
     const AElement = useRef();
-    const downloadpdf = ()=>{
-        AElement.current.setAttribute('download', 'راهنمای-نگارش-پایان-نامه ');
+    const downloadpdf = () => {
+        AElement.current.setAttribute('download', 'نمونه پایان نامه خوارزمی');
         // const href = URL.createObjectURL(pdf);
         AElement.current.href = pdf;
         // aElement.setAttribute('href', href);
@@ -19,7 +19,9 @@ const GProject = () => {
             <div>
                 <img src={imgs} alt="" />
             </div>
-            <p>فایل pdf راهنمای نگراش پایانامه را دانلود کنید و بخوبی مطالعه کنید</p>
+            <p>
+                فایل نمونه پروژه پایان نامه pdf را دانلود کنید و بخوبی مطالعه کنید
+            </p>
 
             <Button click={downloadpdf}>
                 دانلود
@@ -28,4 +30,4 @@ const GProject = () => {
         </div>
     )
 }
-export default GProject
+export default Archive
