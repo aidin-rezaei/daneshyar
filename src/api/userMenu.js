@@ -9,12 +9,13 @@ import {
   PlusIcon,
   ChatBubbleLeftRightIcon
 } from "@heroicons/react/24/solid";
-import Chat from "pages/Chat/Chat";
-import Archive from "pages/User/Archive/Archive";
-import DProject from "pages/User/DProject/DProject";
-import GProject from "pages/User/GProject/GProject";
-import Home from "pages/User/Home/Home";
-import Project from "pages/User/Project/Project";
+// import Chat from "pages/Chat/Chat";
+// import Archive from "pages/User/Archive/Archive";
+// import DProject from "pages/User/DProject/DProject";
+// import GProject from "pages/User/GProject/GProject";
+// import Home from "pages/User/Home/Home";
+// import Project from "pages/User/Project/Project";
+
 // import Board from "pages/Admin/Board/Board";
 // import Home from "pages/Admin/Home/Home";
 // import Projects from "pages/Admin/Projects/Projects";
@@ -22,6 +23,12 @@ import Project from "pages/User/Project/Project";
 // import Login from "pages/Login/Login";
 import { lazy } from "react";
 const Login = lazy(() => import('pages/Login/Login'))
+const Chat = lazy(() => import('pages/Chat/Chat'))
+const Archive = lazy(() => import('pages/User/Archive/Archive'))
+const DProject = lazy(() => import('pages/User/DProject/DProject'))
+const GProject = lazy(() => import('pages/User/GProject/GProject'))
+const Home = lazy(() => import('pages/User/Home/Home'))
+const Project = lazy(() => import('pages/User/Project/Project'))
 
 const basepath = "/user/"
 export const userMenu = [

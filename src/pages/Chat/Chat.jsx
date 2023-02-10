@@ -1,18 +1,18 @@
 import React from 'react';
 import './Chat.scss';
 import StringAvater from 'components/StringAvater/StringAvater';
-import { PaperClipIcon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
+import { PaperClipIcon, XMarkIcon, ChevronDownIcon, PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import { Fragment } from 'react';
 import Button from 'components/Button/Button';
 import { useState } from 'react';
 
 
-const Chat = () => {
+const Chat = ({roll}) => {
     const [openDrop, setOpenDrop] = useState(false)
     const dropDown = () => {
         setOpenDrop(true)
     }
-
+console.log(roll);
     return (
         <Fragment>
             <div style={{ paddingBottom: 10 }}>
@@ -158,7 +158,7 @@ const Chat = () => {
                         <div className='teacherChat'>
                             <div style={{ display: 'flex' }}>
                                 <p className='stuTypeChat'>
-                                    سلام بفرماید
+                                    سلام بفرماید.
                                 </p>
                             </div>
                             <hr />
@@ -216,7 +216,7 @@ const Chat = () => {
             </div>
 
             <div style={{ display: 'flex', position: 'absolute', width: '100%', justifyContent: 'center', bottom: 10 }}>
-                <div className='inputChatDiv' style={{ display: 'flex', marginBottom: 28, background: 'white', width: 532, height: 66, bottom: 20, borderRadius: 10, justifyContent: 'space-between', position: 'fixed', alignItems: 'center' }}>
+                <div className='inputChatDiv' style={{ display: 'none', marginBottom: 28, background: 'white', width: 532, height: 66, bottom: 20, borderRadius: 10, justifyContent: 'space-between', position: 'fixed', alignItems: 'center' }}>
                     <div style={{ display: 'flex', width: '50%' }}>
                         <XMarkIcon style={{ width: 20, color: 'red' }} />
                     </div>
@@ -231,12 +231,13 @@ const Chat = () => {
                 </div>
             </div>
             <div style={{ display: 'flex', position: 'absolute', width: '100%', justifyContent: 'center', bottom: 10 }}>
-                <div className='inputChatDiv' style={{ display: 'flex', background: 'white', height: 40, bottom: 20, borderRadius: 10, justifyContent: 'space-between', position: 'fixed', alignItems: 'center' }}>
-                    <input
-                        style={{ width: 500, height: 70, borderStyle: 'none', padding: 10, outline: 'none', background: 'transparent', color: '#BCBCBC', fontSize: 18 }}
+                <div className='inputChatDiv' style={{ display: 'flex', background: 'white', bottom: 20, borderRadius: 10, justifyContent: 'space-between', position: 'fixed', alignItems: 'center' }}>
+                    <PaperAirplaneIcon style={{ width: 30, paddingRight: 10 }} />
+                    <textarea
+                        style={{ width: 500, borderStyle: 'none', padding: 10, outline: 'none', background: 'transparent', color: '#BCBCBC', fontSize: 18 }}
                         type="text"
                         placeholder="یک متن تایپ کنید . . ."
-                    />
+                    ></textarea>
                     <PaperClipIcon style={{ width: 30, paddingLeft: 10 }} />
                 </div>
             </div>
