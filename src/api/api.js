@@ -8,6 +8,7 @@ export const alogin = (e) => { return (e !== undefined) ? e : baseUrl()+"/alogin
 export const getadmin = (e) => { return (e !== undefined) ? e : baseUrl()+"/getadmin.php"}
 export const createbord = (e) => { return (e !== undefined) ? e : baseUrl()+"/createbord.php" }
 export const getbords = (e) => { return (e !== undefined) ? e : baseUrl()+"/getbords.php" }
+export const usergetsupervisors = (e) => { return (e !== undefined) ? e : baseUrl()+"/usergetsupervisors.php" }
 // export const getUsers = (e) => { return (e !== undefined) ? e : baseUrl2()+"/getUsers" }
 // export const submitDamage = (e) => { return (e !== undefined) ? e : baseUrl2()+"/Third-party-damage/save" }
 // export const apiUserCase = (e) => {return (e !== undefined) ? e : baseUrl2()+ "/Third-party-damage/getThirdPartyDamageCurentUser"}
