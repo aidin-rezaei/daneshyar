@@ -3,9 +3,10 @@ import './SignUp.scss';
 import Button from 'components/Button/Button';
 import CardG from 'components/CardG/CardG';
 import Input from 'components/Input/Input';
-import { signup, usergetsupervisors } from 'api/api';
+import { alogin, signup, usergetsupervisors } from 'api/api';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router';
 
 const SignUp = () => {
     const [pervisors, setPervisors] = useState([])
@@ -16,7 +17,8 @@ const SignUp = () => {
     const [pass, setpass] = useState([])
     const [supervisor, setsupervisor] = useState(0)
 
-console.log(supervisor);
+    const navigate = useNavigate()
+
 
 
     const getpervisors = () => {
@@ -53,6 +55,13 @@ console.log(supervisor);
         )
             .then(function (response2) {
                 console.log(response2.data.data.users);
+                const userdata = response2.data.data.users
+
+                Cookies.set('user', userdata.username, { expires: 1 })
+                Cookies.set('auth', userdata.hash, { expires: 1 })
+
+                navigate('/user/home')
+
 
             })
             .catch((err) => console.log(err))
@@ -85,7 +94,7 @@ console.log(supervisor);
                 <Input changev={setemail} value={email} label='ایمیل' />
                 <Input changev={setpass} value={pass} label='رمز' />
                 {/* <Input label='انتخاب استاد راهنما' /> */}
-                <select value={supervisor} onChange={(e)=>setsupervisor(e.target.value)} className='signUpSelect'>
+                <select value={supervisor} onChange={(e) => setsupervisor(e.target.value)} className='signUpSelect'>
                     <option value='0' disabled selected hidden>انتخاب استاد راهنما</option>
                     {pervisors.map((item) => <option value={item.id}>{item.username}</option>)}
                 </select>
