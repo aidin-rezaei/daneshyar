@@ -12,11 +12,11 @@ const Chat = ({roll}) => {
     const dropDown = () => {
         setOpenDrop(true)
     }
-console.log(roll);
     return (
         <Fragment>
             <div style={{ paddingBottom: 10 }}>
-                <div className='chatNav' style={{ display: 'flex', justifyContent: 'space-between' }}>
+
+                {roll!=='user'?<div className='chatNav' style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
                         <div style={{ display: 'flex', width: '90%', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap'  }}>
                             <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -63,7 +63,7 @@ console.log(roll);
                             </p>
                         </div>
                     </div>
-                </div>
+                </div>:''}
                 <div className='chatScroll'>
                     <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', paddingLeft: 10, paddingRight: 10 }}>
                         <div className='stuChat'>
