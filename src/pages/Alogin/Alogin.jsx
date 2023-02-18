@@ -57,11 +57,11 @@ const Alogin = () => {
                 //                 username: data.username,
                 //             },
                 //         })
-                        
+
                 //     })
                 //     .catch((err) => console.log(err))
-                    
-                    navigate('/admin/home')
+
+                navigate('/admin/home')
             })
             .catch((err) => console.log(err))
     }

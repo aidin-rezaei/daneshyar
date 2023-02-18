@@ -18,7 +18,7 @@ console.log(roll);
             <div style={{ paddingBottom: 10 }}>
                 <div className='chatNav' style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
-                        <div style={{ display: 'flex', width: '90%', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', width: '90%', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap'  }}>
                             <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                 <StringAvater name={'آیدین رضایی'} />
                                 <p className='chatAvatarText'>

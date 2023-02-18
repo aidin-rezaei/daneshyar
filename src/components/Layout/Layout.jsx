@@ -7,7 +7,7 @@ import { Avatar } from '@mui/material';
 import { Outlet, useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'components/Modal/Modal';
-import { getadmin } from 'api/api';
+import { getadmin, getuser } from 'api/api';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { userMenu } from 'api/userMenu';
@@ -17,35 +17,70 @@ const Layout = ({ children, roll }) => {
     const MENU = useSelector(state => state.menu);
     const USER = useSelector(state => state.AdminData);
     useEffect(() => { setopenMenu(MENU) }, [MENU])
-    useEffect(() => {
-        axios.post(
-            getadmin(),
-            {
-                username: Cookies.get("user"),
-            },
-            {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                    "Authorization": Cookies.get("auth")
+    const fungetdata = ()=>{
+        if (roll === "user") {
+            axios.post(
+                getuser(),
+                {
+                    studentNumber: Cookies.get("user"),
                 },
-            }
-        )
-            .then(function (response2) {
-                // console.log(response2);
-                const data = response2.data.data.admin[0];
-                // console.log(data);
-                dispatch({
-                    type: "SET_ADMIN_DATA",
-                    value: {
-                        email: data.email,
-                        phone: data.phone,
-                        id: data.id,
-                        username: data.username,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "Authorization": Cookies.get("auth")
                     },
+                }
+            )
+                .then(function (response2) {
+                    // console.log(response2);
+                    const data = response2.data.data.user[0];
+                    // console.log(data);
+                    dispatch({
+                        type: "SET_USER_DATA",
+                        value: {
+                            email: data.email,
+                            phone: data.phone,
+                            studentNumber: data.studentNumber,
+                            supervisor: data.supervisor,
+                            username: data.username
+                        },
+                    })
+    
                 })
-
-            })
-            .catch((err) => console.log(err))
+                .catch((err) => console.log(err))
+        }else{
+            axios.post(
+                getadmin(),
+                {
+                    username: Cookies.get("user"),
+                },
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "Authorization": Cookies.get("auth")
+                    },
+                }
+            )
+                .then(function (response2) {
+                    // console.log(response2);
+                    const data = response2.data.data.admin[0];
+                    // console.log(data);
+                    dispatch({
+                        type: "SET_ADMIN_DATA",
+                        value: {
+                            email: data.email,
+                            phone: data.phone,
+                            id: data.id,
+                            username: data.username,
+                        },
+                    })
+    
+                })
+                .catch((err) => console.log(err))
+        }
+    }
+    useEffect(() => {
+        
     }, [])
     // console.log(USER);
     const stringToColor = (string) => {

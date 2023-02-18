@@ -33,24 +33,8 @@ const Login = () => {
                 // dispatch({ type: "Authorization_TOKEN", value: response.data.token });
                 Cookies.set('user', response.data.data.user[0].studentNumber, { expires: 1 })
                 Cookies.set('auth', response.data.data.user[0].password, { expires: 1 })
-                axios.post(
-                    getuser(),
-                    {
-                        studentNumber: response.data.data.user[0].studentNumber,
-                    },
-                    {
-                        headers: {
-                            "Content-Type": "multipart/form-data",
-                            "Authorization": response.data.data.user[0].password
-                        },
-                    }
-                )
-                    .then(function (response2) {
-                        console.log(response2);
 
-                        navigate('/admin/home')
-                    })
-                    .catch((err) => console.log(err))
+                navigate('/user/home')
 
             })
             .catch((err) => console.log(err))
