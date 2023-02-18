@@ -64,75 +64,6 @@ console.log(roll);
                         </div>
                     </div>
                 </div>
-
-                {/* mobileResponsive */}
-                {/* <div className='chatNavMobile' >
-                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
-                        <div style={{ display: 'flex' }}>
-                            <div>
-                                <StringAvater name={'آیدین رضایی'} />
-                            </div>
-                            <div style={{ paddingRight: 5 }}>
-                                <p style={{ fontSize: 12, whiteSpace: 'nowrap' }}>
-                                    آیدین رضایی
-                                </p>
-                                <p style={{ fontSize: 12, whiteSpace: 'nowrap' }}>
-                                    موضوع پروژه:
-                                    <span style={{ fontSize: 11, color: '#22BDD5', whiteSpace: 'nowrap', paddingRight: 3 }}>
-                                        هوش مصنوعی در علم پزشکی
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                <ChevronDownIcon style={{ width: 20 }} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style={{display:'flex', position:'absolute', width:'100%', top:50}} >
-                    <div className='chatDropDown'>
-                        <div style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
-                            <div style={{ display: 'flex', width: '100%', justifyContent: 'flex-start', paddingRight:47 }}>
-                                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                    <p style={{ fontSize: 12 , fontWeight:'bold', direction:'ltr' }}>
-                                      :  شماره دانشجویی
-                                    </p>
-                                </div>
-                                <div style={{ display: 'flex' }}>
-                                    <p style={{ fontSize: 12 }}>
-                                    &nbsp;
-                                        9915116302007
-                                    </p>
-                                </div>
-                            </div>
-                            <div style={{ display: 'flex', width: '100%', justifyContent: 'flex-start', paddingRight:47}}>
-                                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                    <p style={{ fontSize: 12, fontWeight:'bold', direction:'ltr' }}>
-                                       : شماره موبایل
-                                    </p>
-                                </div>
-                                <div style={{ display: 'flex' }}>
-                                    <p style={{ fontSize: 12 }}>
-                                    &nbsp;
-                                        09030007960
-                                    </p>
-                                </div>
-                            </div>
-                            <div style={{ display: 'flex', width: '100%', justifyContent: 'flex-start', paddingRight:47, paddingBottom:8  }}>
-                                <p style={{ fontSize: 12, fontWeight:'bold', direction:'ltr' }}>
-                                   : ایمیل
-                                </p>
-                                <p style={{ fontSize: 12 }}>
-                                &nbsp;
-                                    aidin@aidin.com
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-
                 <div className='chatScroll'>
                     <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', paddingLeft: 10, paddingRight: 10 }}>
                         <div className='stuChat'>
@@ -175,45 +106,7 @@ console.log(roll);
                         
                 </div>
 
-                {/* mobileResponsive */}
-                {/* <div className='chatScrollMobile'>
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', width: '100%', paddingLeft:5 }}>
-                        <div className='stuChatMobile'>
-                            <div style={{ display: 'flex' }}>
-                                <p style={{ fontSize: 12 }}>
-                                    سلام آقای باغستانی
-                                </p>
-                            </div>
-                            <hr />
-                            <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, alignItems: 'center' }}>
-                                <p style={{ fontSize: 10, whiteSpace: 'nowrap' }}>
-                                    دانلود فایل آپلود شده توسط دانشجو
-                                </p>
-                                <Button sx={{ width: 60, padding: 0, fontSize: 10, height: 25 }}>
-                                    دانلود
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end', width: '100%', paddingRight:5 }}>
-                        <div className='teacherChatMobile'>
-                            <div style={{ display: 'flex' }}>
-                                <p style={{ fontSize: 12 }}>
-                                    سلام پسرم
-                                </p>
-                            </div>
-                            <hr />
-                            <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, alignItems: 'center' }}>
-                                <p style={{ fontSize: 10, whiteSpace: 'nowrap' }}>
-                                    دانلود فایل آپلود شده توسط دانشجو
-                                </p>
-                                <Button sx={{ width: 60, padding: 0, fontSize: 10, height: 25 }}>
-                                    دانلود
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
+
             </div>
 
             <div style={{ display: 'flex', position: 'absolute', width: '100%', justifyContent: 'center', bottom: 10 }}>
