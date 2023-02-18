@@ -113,7 +113,7 @@ const Chat = ({ roll }) => {
                                                                 {item.content}
                                                             </p>
                                                         </div>
-                                                        <hr />
+                                                        {/* <hr />
                                                         <div className='chatDownloadButton' style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, alignItems: 'center' }}>
                                                             <p className='stuDownloadText'>
                                                                 دانلود فایل آپلود شده توسط دانشجو
@@ -121,20 +121,19 @@ const Chat = ({ roll }) => {
                                                             <Button>
                                                                 دانلود
                                                             </Button>
-                                                        </div>
+                                                        </div> */}
                                                     </div>
-                                                    <StringAvater name={'آیدین رضایی'} />
                                                 </div>)
                                                 :
                                                 (<div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end', marginRight: 10, paddingLeft: 10 }}>
-                                                    <StringAvater name={'آیدین رضایی'} />
+                                                    <StringAvater name={USER.username} />
                                                     <div className='teacherChat'>
                                                         <div style={{ display: 'flex', padding: '5px' }}>
                                                             <p className='stuTypeChat'>
                                                                 {item.content}
                                                             </p>
                                                         </div>
-                                                        <hr />
+                                                        {/* <hr />
                                                         <div className='chatDownloadButton' style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, alignItems: 'center' }}>
                                                             <p className='stuDownloadText'>
                                                                 دانلود فایل آپلود شده توسط دانشجو
@@ -142,7 +141,7 @@ const Chat = ({ roll }) => {
                                                             <Button>
                                                                 دانلود
                                                             </Button>
-                                                        </div>
+                                                        </div> */}
                                                     </div>
                                                 </div>)
                                             }
@@ -153,7 +152,63 @@ const Chat = ({ roll }) => {
 
                             )
                             :
-                            ''
+                            getchats.map(
+                                // "content": "salam ostad",
+                                // "path_file": " ",
+                                // "date": "2023-02-07 12:59:06",
+                                // "supervisors": "4",
+                                // "user": "99110016302007",
+                                // "type": "admin",
+                                // "status": "0"
+                                (item) => {
+                                    return (
+                                        <>
+                                            {item.type === 'user' ?
+                                                (<div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', paddingLeft: 10, paddingRight: 10 }}>
+                                                    <div className='stuChat'>
+                                                        <div style={{ display: 'flex', padding: '5px' }}>
+                                                            <p className='stuTypeChat'>
+                                                                {item.content}
+                                                            </p>
+                                                        </div>
+                                                        {/* <hr />
+                                                        <div className='chatDownloadButton' style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, alignItems: 'center' }}>
+                                                            <p className='stuDownloadText'>
+                                                                دانلود فایل آپلود شده توسط دانشجو
+                                                            </p>
+                                                            <Button>
+                                                                دانلود
+                                                            </Button>
+                                                        </div> */}
+                                                    </div>
+                                                </div>)
+                                                :
+                                                (<div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end', marginRight: 10, paddingLeft: 10 }}>
+                                                    <StringAvater name={ADMIN.username} />
+                                                    <div className='teacherChat'>
+                                                        <div style={{ display: 'flex', padding: '5px' }}>
+                                                            <p className='stuTypeChat'>
+                                                                {item.content}
+                                                            </p>
+                                                        </div>
+                                                        {/* <hr />
+                                                        <div className='chatDownloadButton' style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, alignItems: 'center' }}>
+                                                            <p className='stuDownloadText'>
+                                                                دانلود فایل آپلود شده توسط دانشجو
+                                                            </p>
+                                                            <Button>
+                                                                دانلود
+                                                            </Button>
+                                                        </div> */}
+                                                    </div>
+                                                </div>)
+                                            }
+                                        </>
+                                    )
+                                }
+
+
+                            )
                     }
 
 
