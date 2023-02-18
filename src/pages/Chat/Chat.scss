@@ -44,7 +44,7 @@
 }
 
 .chatScroll {
-    height: calc(100% - 66px);
+
     // overflow: auto;
     margin-top: 25px;
 }
@@ -189,7 +189,29 @@
         }
     }
 }
+.chatScroll{
+    margin-bottom: 120px;
+}
+.scroll{
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
 
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #555;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+}
 @media  (max-width: 992px) {
     .chatAvatarText{
         font-size: 12px;

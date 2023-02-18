@@ -10,6 +10,8 @@ export const createbord = (e) => { return (e !== undefined) ? e : baseUrl()+"/cr
 export const getbords = (e) => { return (e !== undefined) ? e : baseUrl()+"/getbords.php" }
 export const usergetsupervisors = (e) => { return (e !== undefined) ? e : baseUrl()+"/usergetsupervisors.php" }
 export const usergetbords = (e) => { return (e !== undefined) ? e : baseUrl()+"/usergetbords.php" }
+export const usergetchat = (e) => { return (e !== undefined) ? e : baseUrl()+"/usergetchat.php" }
+export const admingetchat = (e) => { return (e !== undefined) ? e : baseUrl()+"/admingetchat.php" }
 // export const getUsers = (e) => { return (e !== undefined) ? e : baseUrl2()+"/getUsers" }
 // export const submitDamage = (e) => { return (e !== undefined) ? e : baseUrl2()+"/Third-party-damage/save" }
 // export const apiUserCase = (e) => {return (e !== undefined) ? e : baseUrl2()+ "/Third-party-damage/getThirdPartyDamageCurentUser"}

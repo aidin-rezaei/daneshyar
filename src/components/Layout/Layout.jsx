@@ -15,7 +15,9 @@ const Layout = ({ children, roll }) => {
     const dispatch = useDispatch();
     const [openMenu, setopenMenu] = useState(false)
     const MENU = useSelector(state => state.menu);
-    const USER = useSelector(state => state.AdminData);
+    const ADMIN = useSelector(state => state.AdminData);
+    const USER = useSelector(state => state.userData);
+    
     useEffect(() => { setopenMenu(MENU) }, [MENU])
     const fungetdata = ()=>{
         if (roll === "user") {
@@ -80,7 +82,7 @@ const Layout = ({ children, roll }) => {
         }
     }
     useEffect(() => {
-        
+        fungetdata()
     }, [])
     // console.log(USER);
     const stringToColor = (string) => {
@@ -119,8 +121,8 @@ const Layout = ({ children, roll }) => {
             <div className={`sidebar ${openMenu ? 'active' : ''}`}>
                 <div className={`sidebar__body ${openMenu ? 'active' : ''}`}>
                     <div className='sidebar__body__title'>
-                        <Avatar {...stringAvatar(USER.username)} />
-                        <p className='sidebar__body__title__username'>{USER.username}</p>
+                        <Avatar {...stringAvatar(roll==='user'?USER.username:ADMIN.username)} />
+                        <p className='sidebar__body__title__username'>{roll==='user'?USER.username:ADMIN.username}</p>
                     </div>
                     <div className='hrbox'></div>
                     <div className='sidebar__body__menu'>

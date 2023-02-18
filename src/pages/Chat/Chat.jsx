@@ -1,20 +1,53 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Chat.scss';
 import StringAvater from 'components/StringAvater/StringAvater';
 import { PaperClipIcon, XMarkIcon, ChevronDownIcon, PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import { Fragment } from 'react';
 import Button from 'components/Button/Button';
 import { useState } from 'react';
-
+import { usergetchat } from 'api/api';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import Cookies from 'js-cookie';
+// "content": "salam ostad",
+// "path_file": " ",
+// "date": "2023-02-07 12:59:06",
+// "supervisors": "4",
+// "user": "99110016302007",
+// "type": "admin",
+// "status": "0"
 
 const Chat = ({roll}) => {
-    const [openDrop, setOpenDrop] = useState(false)
-    const dropDown = () => {
-        setOpenDrop(true)
+    const [getchats, setgetchats] = useState([])
+    const ADMIN = useSelector(state => state.AdminData);
+    const USER = useSelector(state => state.userData);
+    const getchat = ()=>{
+        axios.post(
+            usergetchat(),
+            {
+                username: Cookies.get("user"),
+                supervisors: USER.supervisor,
+                user: Cookies.get("user")
+            },
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    "Authorization": Cookies.get("auth")
+                },
+            }
+        )
+            .then(function (response2) {
+                setgetchats(response2.data.data.posts)
+                // navigate('/admin/home')
+            })
+            .catch((err) => console.log(err))
     }
+    useEffect(()=>{
+        getchat()
+    },[])
     return (
         <Fragment>
-            <div style={{ paddingBottom: 10 }}>
+            <div className='scroll' style={{ paddingBottom: 10,overflow: "auto",height: '100%' }}>
 
                 {roll!=='user'?<div className='chatNav' style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
