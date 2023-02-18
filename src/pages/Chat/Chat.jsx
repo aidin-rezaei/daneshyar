@@ -136,7 +136,7 @@ console.log(roll);
                 <div className='chatScroll'>
                     <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', paddingLeft: 10, paddingRight: 10 }}>
                         <div className='stuChat'>
-                            <div style={{ display: 'flex' }}>
+                            <div style={{ display: 'flex',padding:'5px' }}>
                                 <p className='stuTypeChat'>
                                     سلام آقای باغستانی
                                 </p>
@@ -156,7 +156,7 @@ console.log(roll);
                     <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end', marginRight: 10, paddingLeft: 10 }}>
                         <StringAvater name={'آیدین رضایی'} />
                         <div className='teacherChat'>
-                            <div style={{ display: 'flex' }}>
+                            <div style={{ display: 'flex',padding:'5px' }}>
                                 <p className='stuTypeChat'>
                                     سلام بفرماید.
                                 </p>
@@ -172,6 +172,7 @@ console.log(roll);
                             </div>
                         </div>
                     </div>
+                        
                 </div>
 
                 {/* mobileResponsive */}
