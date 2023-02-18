@@ -8,10 +8,10 @@ const initialState = {
         "09038007960",
     studentNumber
         :
-        "99110016302007",
+        "0000000000000",
     supervisor
         :
-        "4",
+        "0",
     username
         :
         "آیدین رضایی"
