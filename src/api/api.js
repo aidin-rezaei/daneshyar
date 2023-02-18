@@ -13,6 +13,7 @@ export const usergetbords = (e) => { return (e !== undefined) ? e : baseUrl()+"/
 export const usergetchat = (e) => { return (e !== undefined) ? e : baseUrl()+"/usergetchat.php" }
 export const usersendchat = (e) => { return (e !== undefined) ? e : baseUrl()+"/usersendchat.php" }
 export const usergetposts = (e) => { return (e !== undefined) ? e : baseUrl()+"/usergetposts.php" }
+export const createpost = (e) => { return (e !== undefined) ? e : baseUrl()+"/createpost.php" }
 export const admingetchat = (e) => { return (e !== undefined) ? e : baseUrl()+"/admingetchat.php" }
 // export const getUsers = (e) => { return (e !== undefined) ? e : baseUrl2()+"/getUsers" }
 // export const submitDamage = (e) => { return (e !== undefined) ? e : baseUrl2()+"/Third-party-damage/save" }

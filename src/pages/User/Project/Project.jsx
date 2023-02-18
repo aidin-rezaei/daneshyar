@@ -1,4 +1,4 @@
-import { usergetposts } from 'api/api';
+import { createpost, usergetposts } from 'api/api';
 import axios from 'axios';
 import Button from 'components/Button/Button';
 import Input from 'components/Input/Input';
@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux';
 import './Project.scss';
 const Project = () => {
     const [status, setStatus] = useState('')
+    const [discretion, setDiscretion] = useState("");
+    const [title, setTitle] = useState("");
     const USER = useSelector(state => state.userData);
 
     const getpost = () => {
@@ -34,6 +36,36 @@ const Project = () => {
     useEffect(() => {
         getpost()
     },[])
+    const addpost = () => {
+        if (title !== '' && discretion !== '') {
+            axios.post(
+                createpost(),
+                {
+                    username: Cookies.get("user"),
+                    studentNumber:Cookies.get("user"),
+                    title: title,
+                    discretion: discretion,
+                    path_file: ' ',
+                    supervisors: USER.supervisor,
+                },
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "Authorization": Cookies.get("auth")
+                    },
+                }
+            )
+                .then(function (response2) {
+                    console.log(response2);
+                    getpost()
+                    setTitle('')
+                    setDiscretion('')
+                })
+                .catch((err) => console.log(err))
+
+
+        }
+    }
     return (
         <div className='project'>
             {
@@ -70,9 +102,9 @@ const Project = () => {
                     :
                     <div className="project__box__sendpost">
                         <h3>پروژه خود را ثبت کنید</h3>
-                        <Input changev={''} value={''} label='عنوان ' />
-                        <Textarea changev={''} value={''} label='متن' />
-                        <Button click={() => console.log('')}>ایجاد</Button>
+                        <Input changev={setTitle} value={title} label='عنوان ' />
+                        <Textarea changev={setDiscretion} value={discretion} label='متن' />
+                        <Button click={addpost}>ایجاد</Button>
                     </div>
             }
         </div>
