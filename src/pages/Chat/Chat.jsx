@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import './Chat.scss';
 import StringAvater from 'components/StringAvater/StringAvater';
-import { PaperClipIcon, XMarkIcon, ChevronDownIcon, PaperAirplaneIcon } from '@heroicons/react/24/solid';
+import { PaperClipIcon, XMarkIcon, PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import { Fragment } from 'react';
-import Button from 'components/Button/Button';
+
 import { useState } from 'react';
 import { usergetchat, usersendchat } from 'api/api';
 import axios from 'axios';
@@ -39,7 +39,7 @@ const Chat = ({ roll }) => {
     }
     useEffect(() => {
         getchat()
-    }, [])
+    })
     const send =()=>{
         if(roll ==='user'){
             axios.post(

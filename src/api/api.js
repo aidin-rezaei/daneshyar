@@ -1,4 +1,3 @@
-import React from "react";
 // export const baseUrl = () => {return("https://aidinr.ir/api/back-end-daneshyar") }
 export const baseUrl = () => {return("http://localhost/back-end-daneshyar") }
 export const login = (e) => { return (e !== undefined) ? e : baseUrl()+"/login.php"}

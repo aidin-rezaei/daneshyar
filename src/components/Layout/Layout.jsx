@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { Avatar } from '@mui/material';
 import { Outlet, useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import Modal from 'components/Modal/Modal';
 import { getadmin, getuser } from 'api/api';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -83,7 +82,7 @@ const Layout = ({ children, roll }) => {
     }
     useEffect(() => {
         fungetdata()
-    }, [])
+    })
     // console.log(USER);
     const stringToColor = (string) => {
         let hash = 0;
@@ -126,7 +125,7 @@ const Layout = ({ children, roll }) => {
                     </div>
                     <div className='hrbox'></div>
                     <div className='sidebar__body__menu'>
-                        {roll == 'user' ?
+                        {roll === 'user' ?
                             userMenu.map((item, key) => {
                                 return (<>
                                     <div key={key} title={item.title}>

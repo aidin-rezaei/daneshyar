@@ -3,7 +3,7 @@ import './SignUp.scss';
 import Button from 'components/Button/Button';
 import CardG from 'components/CardG/CardG';
 import Input from 'components/Input/Input';
-import { alogin, signup, usergetsupervisors } from 'api/api';
+import { signup, usergetsupervisors } from 'api/api';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router';

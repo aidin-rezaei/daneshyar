@@ -35,7 +35,7 @@ const Project = () => {
     }
     useEffect(() => {
         getpost()
-    },[])
+    })
     const addpost = () => {
         if (title !== '' && discretion !== '') {
             axios.post(
