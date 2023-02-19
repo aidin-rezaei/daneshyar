@@ -25,7 +25,7 @@ const store = createStore(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename='/pyman'>
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/admin" element={<Layout />}>
