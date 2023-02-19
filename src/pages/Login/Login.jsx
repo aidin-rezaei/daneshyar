@@ -1,18 +1,16 @@
 
-import { getuser, login } from 'api/api';
+import { login } from 'api/api';
 import axios from 'axios';
 import Button from 'components/Button/Button';
 import CardG from 'components/CardG/CardG';
 import Input from 'components/Input/Input';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 import './Login.scss'
 const Login = () => {
     const navigate = useNavigate()
-    const dispatch = useDispatch();
     const [name, setname] = useState('')
     const [pass, setpass] = useState('')
     const clicklogin = () => {
