@@ -41,7 +41,7 @@ const Project = () => {
             axios.post(
                 createpost(),
                 {
-                    username: Cookies.get("user"),
+                    username: USER.username,
                     studentNumber:Cookies.get("user"),
                     title: title,
                     discretion: discretion,
