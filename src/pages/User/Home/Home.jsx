@@ -30,7 +30,7 @@ const Home = () => {
     }
     useEffect(() => {
         dords()
-    })
+    },[])
     // const addbords = () => {
     //     if (title !== '' && discretion !== '') {
     //         axios.post(

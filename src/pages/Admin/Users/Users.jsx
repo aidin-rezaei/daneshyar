@@ -1,34 +1,58 @@
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/solid';
+import { admingetusers, usergetposts } from 'api/api';
+import axios from 'axios';
 import Button from 'components/Button/Button';
 import StringAvater from 'components/StringAvater/StringAvater';
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import './Users.scss'
 const Users = () => {
-    const api = [
-        { id: 1, name: "محمد یوسفی", date: "99110016302007", phone: "383-503-9548", subject: "انتخاب پروژه", email: "sadasd@asdas.com" },
-        { id: 2, name: "علی اصغری", date: "99110016302007", phone: "601-739-9156", subject: "انتخاب پروژه", email: "sadasd@asdas.com" },
-        { id: 3, name: "آیدین رضایی", date: "99110016302007", phone: "931-130-3803", subject: "انتخاب پروژه", email: "sadasd@asdas.com" },
-        { id: 4, name: "بابک محمدی", date: "99110016302007", phone: "851-654-0802", subject: "انتخاب پروژه", email: "sadasd@asdas.com" },
-        { id: 5, name: "یونس عباسی", date: "99110016302007", phone: "863-931-5689", subject: "انتخاب پروژه", email: "sadasd@asdas.com" },
-    ];
-    let sortTable = [...api];
-    sortTable.sort((a, b) => {
-        if (a["name"] < b["name"]) {
-            return -1;
-        }
-        if (a["name"] > b["name"]) {
-            return 1;
-        }
-        return 0;
-    });
-    console.log(sortTable);
-    const ItemsBable = sortTable.map((product) => (
+    const [api, setapi] = useState([])
+    const USER = useSelector(state => state.AdminData);
+    const getusers = () => {
+        axios.post(
+            admingetusers(),
+            {
+                username: Cookies.get("user"),
+                id: USER.id,
+            },
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    "Authorization": Cookies.get("auth")
+                },
+            }
+        )
+            .then(function (response2) {
+                const sortTable = response2.data.data.posts;
+                console.log(sortTable);
+
+                sortTable.sort((a, b) => {
+                    if (a["username"] < b["username"]) {
+                        return -1;
+                    }
+                    if (a["username"] > b["username"]) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                setapi(sortTable)
+            })
+            .catch((err) => console.log(err))
+    }
+    useEffect(() => {
+        getusers()
+    }, [])
+
+    const ItemsBable = api.map((product) => (
         <tr key={product.id}>
             <td><div className="Users__table__name">
-                <StringAvater name={product.name} />
-                {product.name}
+                <StringAvater name={product.username} />
+                {product.username}
             </div></td>
             <td><div>
-                {product.date}
+                {product.studentNumber}
             </div></td>
             <td><div>
                 {product.phone}
@@ -40,18 +64,21 @@ const Users = () => {
         </tr>
     ));
     return (
-        <table className='Users__table'>
-            <thead>
-                <tr>
-                    <th>دانشجو</th>
-                    <th>شماره دانشجویی</th>
-                    <th>شماره تلفن</th>
-                    <th>ایمیل</th>
-                    <th>ارسال پیام</th>
-                </tr>
-            </thead>
-            <tbody>{ItemsBable}</tbody>
-        </table>
+        <div className='scroll' style={{width:'100%',height:'100%',overflow:'auto'}}>
+
+            <table className='Users__table'>
+                <thead>
+                    <tr>
+                        <th>دانشجو</th>
+                        <th>شماره دانشجویی</th>
+                        <th>شماره تلفن</th>
+                        <th>ایمیل</th>
+                        <th>ارسال پیام</th>
+                    </tr>
+                </thead>
+                <tbody>{ItemsBable}</tbody>
+            </table>
+        </div>
 
     );
 }

@@ -82,7 +82,7 @@ const Layout = ({ children, roll }) => {
     }
     useEffect(() => {
         fungetdata()
-    })
+    },[])
     // console.log(USER);
     const stringToColor = (string) => {
         let hash = 0;

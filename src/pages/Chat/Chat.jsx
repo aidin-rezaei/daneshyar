@@ -39,7 +39,7 @@ const Chat = ({ roll }) => {
     }
     useEffect(() => {
         getchat()
-    })
+    },[])
     const send =()=>{
         if(roll ==='user'){
             axios.post(

@@ -14,6 +14,7 @@ export const usersendchat = (e) => { return (e !== undefined) ? e : baseUrl()+"/
 export const usergetposts = (e) => { return (e !== undefined) ? e : baseUrl()+"/usergetposts.php" }
 export const createpost = (e) => { return (e !== undefined) ? e : baseUrl()+"/createpost.php" }
 export const admingetchat = (e) => { return (e !== undefined) ? e : baseUrl()+"/admingetchat.php" }
+export const admingetusers = (e) => { return (e !== undefined) ? e : baseUrl()+"/admingetusers.php" }
 // export const getUsers = (e) => { return (e !== undefined) ? e : baseUrl2()+"/getUsers" }
 // export const submitDamage = (e) => { return (e !== undefined) ? e : baseUrl2()+"/Third-party-damage/save" }
 // export const apiUserCase = (e) => {return (e !== undefined) ? e : baseUrl2()+ "/Third-party-damage/getThirdPartyDamageCurentUser"}

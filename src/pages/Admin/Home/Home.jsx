@@ -1,5 +1,7 @@
 import Button from 'components/Button/Button';
 import { EyeIcon } from '@heroicons/react/24/solid'
+import imgs from 'assets/files/emtpy.png'
+
 import './Home.scss'
 import StringAvater from 'components/StringAvater/StringAvater';
 const Home = () => {
@@ -43,20 +45,26 @@ const Home = () => {
         </tr>
     ));
     return (
-        <table className='Home__table'>
-            <thead>
-                <tr>
-                    <th>دانشجو</th>
-                    <th>موضوع</th>
-                    <th>تاریخ</th>
-                    <th>شماره تلفن</th>
-                    <th>ایمیل</th>
-                    <th>مشاهده</th>
-                </tr>
-            </thead>
-            <tbody>{ItemsBable}</tbody>
-        </table>
+        // <table className='Home__table'>
+        //     <thead>
+        //         <tr>
+        //             <th>دانشجو</th>
+        //             <th>موضوع</th>
+        //             <th>تاریخ</th>
+        //             <th>شماره تلفن</th>
+        //             <th>ایمیل</th>
+        //             <th>مشاهده</th>
+        //         </tr>
+        //     </thead>
+        //     <tbody>{ItemsBable}</tbody>
+        // </table>
+        <div className='gproject'>
+            <div>
+                <img src={imgs} alt="" />
+            </div>
+            <p>درحال حاضر محتوایی در این صفحه وجود نداد!</p>
 
+        </div>
     );
 }
 
