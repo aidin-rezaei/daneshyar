@@ -2,13 +2,13 @@
 const initialState = {
     email
         :
-        "aidin@gmail.com",
+        "123n@123.123",
     phone
         :
         "09038007960",
     id
         :
-        "4",
+        "0",
     username
         :
         "آیدین رضایی"

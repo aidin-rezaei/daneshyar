@@ -44,7 +44,9 @@ const Users = () => {
     useEffect(() => {
         getusers()
     }, [])
-
+    const sendchat=()=>{
+        
+    }
     const ItemsBable = api.map((product) => (
         <tr key={product.id}>
             <td><div className="Users__table__name">
@@ -60,7 +62,7 @@ const Users = () => {
             <td><div>
                 {product.email}
             </div></td>
-            <td><div><Button><ChatBubbleLeftIcon /></Button></div></td>
+            <td><div><Button click={()=>sendchat(product.studentNumber)}><ChatBubbleLeftIcon /></Button></div></td>
         </tr>
     ));
     return (

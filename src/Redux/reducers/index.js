@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import AChat from "./AChat";
 import AdminData from "./AdminData";
 import Filter from "./Filter";
 import Menu from "./Menu";
@@ -9,6 +10,7 @@ const allReducers = combineReducers({
   menu: Menu,
   filter: Filter,
   roll: Roll,
+  roll: AChat,
   userData: UserData,
   AdminData: AdminData,
   Modal: Modal
