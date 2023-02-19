@@ -5,10 +5,13 @@ import Button from 'components/Button/Button';
 import StringAvater from 'components/StringAvater/StringAvater';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import './Users.scss'
 const Users = () => {
     const [api, setapi] = useState([])
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
     const USER = useSelector(state => state.AdminData);
     const getusers = () => {
         axios.post(
@@ -44,8 +47,12 @@ const Users = () => {
     useEffect(() => {
         getusers()
     }, [])
-    const sendchat=()=>{
-        
+    const sendchat=(num)=>{
+        dispatch({
+            type: "Admin_Chat",
+            value: num,
+        })
+        navigate('/admin/chat')
     }
     const ItemsBable = api.map((product) => (
         <tr key={product.id}>
@@ -62,7 +69,7 @@ const Users = () => {
             <td><div>
                 {product.email}
             </div></td>
-            <td><div><Button click={()=>sendchat(product.studentNumber)}><ChatBubbleLeftIcon /></Button></div></td>
+            <td><div><Button click={()=>sendchat(product)}><ChatBubbleLeftIcon /></Button></div></td>
         </tr>
     ));
     return (

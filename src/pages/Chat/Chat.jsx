@@ -1,11 +1,11 @@
-import  { useEffect } from 'react';
+import { useEffect } from 'react';
 import './Chat.scss';
 import StringAvater from 'components/StringAvater/StringAvater';
 import { PaperClipIcon, XMarkIcon, PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import { Fragment } from 'react';
 
 import { useState } from 'react';
-import { usergetchat, usersendchat } from 'api/api';
+import { admingetchat, adminsendchat, usergetchat, usersendchat } from 'api/api';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
@@ -16,41 +16,64 @@ const Chat = ({ roll }) => {
     const [valueinput, setvalueinput] = useState('')
     const ADMIN = useSelector(state => state.AdminData);
     const USER = useSelector(state => state.userData);
+    const AChat = useSelector(state => state.AChat);
     const getchat = () => {
-        axios.post(
-            usergetchat(),
-            {
-                username: Cookies.get("user"),
-                supervisors: USER.supervisor,
-                user: Cookies.get("user")
-            },
-            {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                    "Authorization": Cookies.get("auth")
+        if (roll === 'user') {
+            axios.post(
+                usergetchat(),
+                {
+                    username: Cookies.get("user"),
+                    supervisors: USER.supervisor,
+                    user: Cookies.get("user")
                 },
-            }
-        )
-            .then(function (response2) {
-                setgetchats(response2.data.data.posts)
-                // navigate('/admin/home')
-            })
-            .catch((err) => console.log(err))
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "Authorization": Cookies.get("auth")
+                    },
+                }
+            )
+                .then(function (response2) {
+                    setgetchats(response2.data.data.posts)
+                    // navigate('/admin/home')
+                })
+                .catch((err) => console.log(err))
+        } else {
+            axios.post(
+                admingetchat(),
+                {
+                    username: Cookies.get("user"),
+                    supervisors: ADMIN.id,
+                    user: AChat.studentNumber
+                },
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "Authorization": Cookies.get("auth")
+                    },
+                }
+            )
+                .then(function (response2) {
+                    setgetchats(response2.data.data.posts)
+                    // navigate('/admin/home')
+                })
+                .catch((err) => console.log(err))
+        }
     }
     useEffect(() => {
         getchat()
-    },[])
-    const send =()=>{
-        if(roll ==='user'){
+    }, [])
+    const send = () => {
+        if (roll === 'user') {
             axios.post(
                 usersendchat(),
                 {
                     username: Cookies.get("user"),
                     supervisors: USER.supervisor,
                     user: Cookies.get("user"),
-                    path_file:' ',
-                    content:valueinput,
-                    type:'user'
+                    path_file: ' ',
+                    content: valueinput,
+                    type: 'user'
                 },
                 {
                     headers: {
@@ -64,16 +87,16 @@ const Chat = ({ roll }) => {
                     setvalueinput("")
                 })
                 .catch((err) => console.log(err))
-        }else{
+        } else {
             axios.post(
-                usersendchat(),
+                adminsendchat(),
                 {
                     username: Cookies.get("user"),
                     supervisors: ADMIN.id,
-                    user: Cookies.get("user"),
-                    path_file:' ',
-                    content:valueinput,
-                    type:'admin'
+                    user: AChat.studentNumber,
+                    path_file: ' ',
+                    content: valueinput,
+                    type: 'admin'
                 },
                 {
                     headers: {
@@ -98,9 +121,9 @@ const Chat = ({ roll }) => {
                     <div style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
                         <div style={{ display: 'flex', width: '90%', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
                             <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-                                <StringAvater name={'آیدین رضایی'} />
+                                <StringAvater name={AChat.username} />
                                 <p className='chatAvatarText'>
-                                    آیدین رضایی
+                                    {AChat.username}
                                 </p>
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
@@ -109,7 +132,7 @@ const Chat = ({ roll }) => {
                                     شماره دانشجویی
                                 </p>
                                 <p className='chatStuNumberText'>
-                                    :99110016302007
+                                    {AChat.studentNumber}
                                 </p>
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
@@ -118,7 +141,7 @@ const Chat = ({ roll }) => {
                                     شماره موبایل
                                 </p>
                                 <p className='chatPhoneNumberText'>
-                                    :09038007960
+                                    {AChat.phone}
                                 </p>
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
@@ -127,7 +150,7 @@ const Chat = ({ roll }) => {
                                     ایمیل
                                 </p>
                                 <p className='chatEmailText'>
-                                    :aidin@aidin.com
+                                    {AChat.email}
                                 </p>
                             </div>
                         </div>
@@ -288,13 +311,13 @@ const Chat = ({ roll }) => {
             </div>
             <div style={{ display: 'flex', position: 'absolute', width: '100%', justifyContent: 'center', bottom: 10 }}>
                 <div className='inputChatDiv' style={{ display: 'flex', background: 'white', bottom: 20, borderRadius: 10, justifyContent: 'space-between', position: 'fixed', alignItems: 'center' }}>
-                   <div onClick={send} >
-                    
-                     <PaperAirplaneIcon style={{color:'rgba(0, 165, 165, 0.5019607843)', width: 50, paddingRight: 10 }} />
+                    <div onClick={send} >
+
+                        <PaperAirplaneIcon style={{ color: 'rgba(0, 165, 165, 0.5019607843)', width: 50, paddingRight: 10 }} />
                     </div>
                     <textarea
                         value={valueinput}
-                        onChange={(e)=>setvalueinput(e.target.value)}
+                        onChange={(e) => setvalueinput(e.target.value)}
                         style={{ width: 500, borderStyle: 'none', padding: 10, outline: 'none', background: 'transparent', color: '#000', fontSize: 18 }}
                         type="text"
                         placeholder="یک متن تایپ کنید . . ."

@@ -10,7 +10,7 @@ const allReducers = combineReducers({
   menu: Menu,
   filter: Filter,
   roll: Roll,
-  roll: AChat,
+  AChat: AChat,
   userData: UserData,
   AdminData: AdminData,
   Modal: Modal
