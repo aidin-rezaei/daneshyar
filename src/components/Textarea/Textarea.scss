@@ -1,0 +1,96 @@
+.input-text {
+    position: relative;
+    width: 320px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::before{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        // left: 0;
+        width: 100%;
+        height: 1px;
+        background: #707070;
+    }
+    &:focus-within::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        // left: 0;
+        width: 0;
+        height: 3px;
+        background: #33a0a7;
+        animation: border-effect .5s forwards;
+    }
+
+    & label {
+        position: absolute;
+        pointer-events: none;
+        right: 0;
+        top: 0;
+        transition: all .3s ease;
+    }
+
+    & textarea {
+        background: transparent;
+        border: unset;
+        outline: unset;
+        width: 100%;
+        direction: rtl;
+        // border-bottom: 1px solid #707070;
+        transition: all .3s ease;
+        padding: 8px;
+        font-size: 18px;
+
+        &:focus {
+            border-color: #33a0a7;
+        }
+
+        &:focus+label {
+            margin-top: -15px;
+            font-size: 10px;
+            color: #33a0a7;
+        }
+
+        &:not(:placeholder-shown)+label {
+            margin-top: -15px;
+            font-size: 10px;
+            color: #33a0a7;
+        }
+
+        &:autofill+label{
+            margin-top: -15px;
+            font-size: 10px;
+            color: #33a0a7;
+        }
+
+        &::-webkit-input-placeholder {
+            font-size: 0px;
+            color: transparent;
+        }
+
+        &:-ms-input-placeholder {
+            font-size: 0px;
+            color: transparent;
+        }
+
+        &::placeholder {
+            font-size: 0px;
+            color: transparent;
+        }
+    }
+    & svg{
+        cursor: pointer;
+        width: 40px;
+        padding: 5px;
+    }
+
+}
+
+@keyframes border-effect {
+    to {
+        width: 100%;
+    }
+}

@@ -1,0 +1,17 @@
+.gproject{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    p{
+        font-size: 20px;
+        color: #FFF;
+
+    }
+    button{
+        margin-top: 20px;
+        width: 150px;
+        padding: 5px 0;
+    }
+}

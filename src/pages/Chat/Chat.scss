@@ -1,10 +1,9 @@
 .chatNav {
     background: white;
-    height: 120px;
     backdrop-filter: blur(10px);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding: 0px 10px;
+    padding:10px;
     box-shadow: inset 1px 1px 5px rgb(255 255 255 / 35%), inset -1px -1px 5px rgb(0 0 0 / 35%),
         0 0 50px rgb(0 0 0 / 30%);
 }
@@ -20,7 +19,7 @@
 }
 
 .stuChat {
-    width: 600px;
+    // width: 444px;
     height: auto;
     padding: 8px 8px 8px 12px;
     background-color: white;
@@ -45,7 +44,7 @@
 }
 
 .chatScroll {
-    height: calc(100% - 66px);
+
     // overflow: auto;
     margin-top: 25px;
 }
@@ -59,9 +58,9 @@
 
 .teacherChat {
     background-color: #e3fff7;
-    width: 600px;
+    // width: 444px;
     height: auto;
-    padding: 12px 10px 13px 28px;
+    padding: 12px 10px 13px 13px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -155,6 +154,7 @@
 }
 
 .stuTypeChat{
+    white-space: pre-line;
     font-size: 16px;
 }
 
@@ -189,8 +189,30 @@
         }
     }
 }
+.chatScroll{
+    margin-bottom: 120px;
+}
+.scroll{
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
 
-@media (min-width: 601px) and (max-width: 992px) {
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #555;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+}
+@media  (max-width: 992px) {
     .chatAvatarText{
         font-size: 12px;
         padding-right: 0 !important;
@@ -206,7 +228,6 @@
     }
     .chatNav{
         padding: 0 3px !important;
-        height: 100px !important;
     }
     .chatProjectSubjectText{
         font-size: 16px;
@@ -218,7 +239,14 @@
         font-size: 14px;
     }
     .stuDownloadText{
-        font-size: 14px;
+        font-size: 12px;
+    }
+    .inputChatDiv{
+        margin: 20px;
+        width: 90%;
+        & textarea{
+            width: 100% !important;
+        }
     }
     .chatDownloadButton{
         button{

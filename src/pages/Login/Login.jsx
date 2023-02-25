@@ -1,10 +1,43 @@
 
+import { login } from 'api/api';
+import axios from 'axios';
 import Button from 'components/Button/Button';
 import CardG from 'components/CardG/CardG';
 import Input from 'components/Input/Input';
+import Cookies from 'js-cookie';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 import './Login.scss'
 const Login = () => {
+    const navigate = useNavigate()
+    const [name, setname] = useState('')
+    const [pass, setpass] = useState('')
+    const clicklogin = () => {
+
+        axios.post(
+            login(),
+            {
+                password: pass,
+                studentNumber: name,
+            },
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            }
+        )
+            .then(function (response) {
+                // dispatch({ type: "Authorization_TOKEN", value: response.data.token });
+                Cookies.set('user', response.data.data.user[0].studentNumber, { expires: 1 })
+                Cookies.set('auth', response.data.data.user[0].password, { expires: 1 })
+
+                navigate('/user/home')
+
+            })
+            .catch((err) => console.log(err))
+    }
+
     return (
         <div className='login'>
             <CardG>
@@ -12,10 +45,10 @@ const Login = () => {
                     <h1>پیمن</h1>
                     <p>سامانه مدیریت پایان نامه</p>
                 </div>
-                <Input label='شماره دانشجویی' />
-                <Input label='رمز عبور' />
+                <Input changev={setname} value={name} label='شماره دانشجویی' />
+                <Input changev={setpass} value={pass} typeInput="password" label='رمز عبور' />
                 <div className='login__btn'>
-                    <Button link='/admin/home'>ورود</Button>
+                    <Button click={clicklogin}>ورود</Button>
 
                 </div>
                 <div className="login__box_btn">

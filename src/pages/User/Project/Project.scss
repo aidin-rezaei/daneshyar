@@ -1,0 +1,34 @@
+.project{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    &__box__sendpost{
+        background: #fff;
+        padding: 20px;
+        border-radius: 14px;
+        button{
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+    &__post{
+        width: 90%;
+        // height: 100%;
+        border-radius: 14px;
+        padding: 20px;
+        background: #fff;
+        &__box{
+            p{
+                font-weight: bold;
+            }
+            margin-bottom: 10px;
+            &.red{
+                background: rgba(255, 0, 0, 0.187);
+                border-radius: 8px;
+                border: 1px solid rgb(255, 0, 0);
+                padding: 5px;
+            }
+        }
+    }
+}
